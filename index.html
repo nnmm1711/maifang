@@ -39,7 +39,7 @@
 	<div id="app">
 		<div v-if='panel=="front"' id="标题栏" class="d-flex flex-wrap justify-content-around " style="height:30vh; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
 			<div class="my-auto mr-auto animated fadeInRight delay-1s" style="background-color: rgba(0, 0, 0, 0.6)">
-				<span class="text-light " style="font-size:  7vh;">全英国房产投资地图</span>
+				<span class="text-light " style="font-size:  7vh;">全英房产投资地图</span>
 			</div>
 		</div>
 		<nav id="导航条" class="navbar navbar-expand-lg navbar-dark sticky-top p-1" style="background:rgba(0, 0, 0, 0.8);">
@@ -78,18 +78,20 @@
 			<div id="分块介绍" class="mx-4" style="border-width:0;">
 				<div class="row">
 					<div class="col-sm-6 col-lg-3 p-0 mt-2">
-						<div class="card m-1" style="height:100%; border-width:0;">
-							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="https://tse4.mm.bing.net/th?id=OIP.JtnzacjFxNWGmNDTX11msgHaE9&pid=Api&w=1270&h=850&rs=1&p=0"
-							 alt="Card image cap">
-							<div class="card-img-overlay p-1">
-								<h3 class="card-title borderTxt">每小时更新全英国房源</h3>
-							</div>
-							<div class="card-body text-muted  p-3">
-								<p class="card-text">好房不等人<br>
-									中科剑桥海外投资集团联合英国房地产协会独家提供每小时更新的英国主要城市全部在售房产信息</p>
+						<a href="?mode=map">
+							<div class="card m-1" style="height:100%; border-width:0;">
+								<img class="rounded card-img-top" style="width:100%; height:12rem;" src="https://tse4.mm.bing.net/th?id=OIP.JtnzacjFxNWGmNDTX11msgHaE9&pid=Api&w=1270&h=850&rs=1&p=0"
+								 alt="Card image cap">
+								<div class="card-img-overlay p-1">
+									<h3 class="card-title borderTxt">每小时更新全英国房源</h3>
+								</div>
+								<div class="card-body text-muted  p-3">
+									<p class="card-text">好房不等人<br>
+										中科剑桥海外投资集团联合英国房地产协会独家提供每小时更新的英国主要城市全部在售房产信息</p>
 
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					<div class="col-sm-6 col-lg-3 p-0 mt-2">
 						<a href="?mode=map">
@@ -274,10 +276,10 @@
 										</td>
 										<td>
 											<div class="btn-group btn-group-toggle" data-toggle="buttons">
-													<button class="btn btn-outline-secondary" @click="deleteFilter('flat')">
-															<input type="radio" name="发布" id="option2"> 全部
-														</button>
-														<button class="btn btn-outline-secondary" @click="setFilter('flat',true)">
+												<button class="btn btn-outline-secondary" @click="deleteFilter('flat')">
+													<input type="radio" name="发布" id="option2"> 全部
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('flat',true)">
 													<input type="radio" name="建筑" id="option1"> 公寓
 												</button>
 												<button class="btn btn-outline-secondary" @click="setFilter('flat',false)">
@@ -335,7 +337,7 @@
 										</td>
 									</tr>
 								</table>
-<div class="alert alert-success mt-2">共计{{zip.length}}项,本次筛选{{_.filter(zip,filter).length}}</div>
+								<div class="alert alert-success mt-2">共计{{zip.length}}项,本次筛选{{_.filter(zip,filter).length}}</div>
 
 
 						</div>
@@ -874,9 +876,9 @@
 									lo.price.toLocaleString() +
 									'(点击图片查看详细介绍)<a href="?id=' +
 									lo.id +
-									'"target="_blank"><img class="img-fluid" src="' +
-									lo.pic +
-									'"/></a>' +
+									'"target="_blank"><img class="img-fluid" src="http://222.242.223.77:50080/allset/' +
+									lo.id / 89 +
+									'/00.jpg"/></a>' +
 									lo.beds + (lo.beds > 4 ? '+' : '') +
 									"卧室, 半独立别墅<br>资料更新日期2018-12-12" +
 									tenure +

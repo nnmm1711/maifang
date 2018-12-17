@@ -86,8 +86,8 @@
 								<h3 class="card-title borderTxt">每小时更新全英国房源</h3>
 							</div>
 							<div class="card-body text-muted  p-3">
-								<p class="card-text">好房不等人<br>
-									剑桥海外投资集团联合英国房地产协会独家提供每小时更新的英国主要城市全部在售房产信息</p>
+								<p class="card-text">好房不等人。 
+									剑桥海外投资集团联合英国房地产协会为您独家提供英国主要城市全部在售房产信息，每小时滚动更新</p>
 
 							</div>
 						</div>
@@ -207,7 +207,7 @@
 				<h1>最新登场房源 </h1>
 			</div>
 			<template v-for="v in r.last20">
-				<div class="borderTxt m-1 rounded" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+v.pics[0]+")"}'>
+				<div class="borderTxt m-1 rounded animated flipInX wow" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+v.pics[0]+")"}'>
 					<p class="m-1"> 更新于英国时间{{v.updated}}<br>
 						{{v.beds}}居
 						&pound;{{ v.price.toLocaleString() }}</p>
@@ -436,7 +436,12 @@
 			</div>
 		</div>
 		<div id="footer" class="alert alert-secondary text-muted m-0 p-6 d-flex flex-wrap justify-content-center">
-			<div>
+				<div class="m-3">
+						<h2>
+							请扫二维码加客服微信
+						</h2>
+					</div>
+					<div>
 				<img class="img-fluid " style="width:8rem" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fy2k6xk9v4j307t0bbmxn.jpg"
 				 alt="英国房产地产投资 剑桥海外投资集团 伦敦买房" />
 			</div>

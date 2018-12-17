@@ -39,7 +39,7 @@
 	<div id="app">
 		<div v-if='panel=="front"' id="标题栏" class="d-flex flex-wrap justify-content-around " style="height:30vh; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
 			<div class="my-auto mr-auto animated fadeInRight delay-1s" style="background-color: rgba(0, 0, 0, 0.6)">
-				<span class="text-light " style="font-size:  7vh;">英国房产内参</span>
+				<span class="text-light " style="font-size:  7vh;">英图网-英国房产投资地图</span>
 			</div>
 		</div>
 		<nav id="导航条" class="navbar navbar-expand-lg navbar-dark sticky-top p-1" style="background:rgba(0, 0, 0, 0.8);">
@@ -74,33 +74,33 @@
 		</nav>
 
 
-		<div v-if='panel=="front"' >
-			<div id="分块介绍" class="mx-3 bg-light">
-				<div class="row d-flex align-items-stretch">
+		<div v-if='panel=="front"'>
+			<div id="分块介绍" class="mx-4" style="border-width:0;">
+				<div class="row">
 					<div class="col-sm-6 col-lg-3 p-0 mt-2">
-						<div class="card m-1 " style="height:100%;">
+						<div class="card m-1" style="height:100%; border-width:0;">
 							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="https://tse4.mm.bing.net/th?id=OIP.JtnzacjFxNWGmNDTX11msgHaE9&pid=Api&w=1270&h=850&rs=1&p=0"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
-								<h3 class="card-title borderTxt" >每小时更新全英房源</h3>
+								<h3 class="card-title borderTxt">每小时更新全英房源</h3>
 							</div>
-							<div class="card-body text-muted p-3">
+							<div class="card-body text-muted  p-3">
 								<p class="card-text">好房不等人<br>
-									剑桥海外投资集团联合英国房地产协会独家提供每小时更新的英国主要城市全部在售房产信息</p>
+									中科剑桥海外投资集团联合英国房地产协会独家提供每小时更新的英国主要城市全部在售房产信息</p>
 
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-6 col-lg-3 p-0 mt-2">
 						<a href="?mode=map">
-							<div class="card m-1 " style="height:100%;">
+							<div class="card m-1" style="height:100%; border-width:0;">
 								<img class="rounded card-img-top " style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fy61zl4zl8j30og0g3djl.jpg"
 								 alt="Card image cap">
 								<div class="card-img-overlay p-1">
-									<h3 class="card-title borderTxt" >全景地图选房</h3>
+									<h3 class="card-title borderTxt">全景地图选房</h3>
 								</div>
 								<div class="card-body text-muted p-3">
-									<p class="card-text">全部信息以互动地图方式呈现 一目了然
+									<p class="card-text">地段是房产价值的第一大要素 本站全部房源以互动地图方式呈现, 一目了然
 									</p>
 
 								</div>
@@ -108,20 +108,20 @@
 						</a>
 					</div>
 					<div class="col-sm-6 col-lg-3 p-0 mt-2">
-						<div class="card m-1 " style="height:100%;">
+						<div class="card m-1" style="height:100%; border-width:0;">
 							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="https://tse4-mm.cn.bing.net/th?id=OIP.uWpVVTdK0u8DJwtXWTJUKAHaE8&pid=Api&w=900&h=600&rs=1&p=0"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
 								<h3 class="card-title borderTxt">精品豪宅资讯</h3>
 							</div>
 							<div class="card-body text-muted p-3">
-								<p class="card-text">每日精选最新上市的精品豪宅，在中东买家行动之前获得顶级豪宅的第一手资料
+								<p class="card-text">每日精选最新上市的精品豪宅，本站比其它国家买家更早获得顶级豪宅的第一手资料
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-6 col-lg-3 p-0 mt-2">
-						<div class="card m-1 " style="height:100%;">
+						<div class="card m-1" style="height:100%; border-width:0;">
 							<a href="#">
 								<img class="rounded card-img-top" style="width:100%; height:12rem;" src="https://www.britishcouncil.ge/sites/default/files/study-in-the-uk-boarding-school-ge-yp.jpg"
 								 alt="Card image cap">
@@ -137,14 +137,14 @@
 					</div>
 					<div class="col-sm-6 col-lg-3 p-0 mt-2">
 						<a href="javasctipt:void(0)" @click="showlogos=true">
-							<div class="card m-1 " style="height:100%;">
+							<div class="card m-1" style="height:100%; border-width:0;">
 								<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/large/0060lm7Tly1fy79xuw0loj30ap06e0t9.jpg"
 								 alt="Card image cap">
 								<div class="card-img-overlay p-1">
-									<h3 class="card-title borderTxt">英国本地合作伙伴</h3>
+									<h3 class="card-title borderTxt">联合全英国地产界精英</h3>
 								</div>
 								<div class="card-body text-muted p-3">
-									<p class="card-text">英国房地产协会中独家合作伙伴, 精选遍布英国全境的顶级地产律师事务所共同提供专业服务(点击查看联盟成员清单)
+									<p class="card-text">英国房地产协会中国区独家合作伙伴, 精选遍布英国全境的顶级地产律师事务所共同提供专业服务(点击查看联盟成员清单)
 									</p>
 								</div>
 							</div>
@@ -156,20 +156,20 @@
 						</template>
 					</div>
 					<div class="col-sm-6 col-lg-3 p-0 mt-2">
-						<div class="card m-1 " style="height:100%;">
+						<div class="card m-1" style="height:100%; border-width:0;">
 							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="https://tse3.mm.bing.net/th?id=OIP.ryknJSxTuXbhkej7gKaIRgHaE8&pid=Api&w=1600&h=1067&rs=1&p=0"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
 								<h3 class="card-title borderTxt">专业房产投资顾问</h3>
 							</div>
 							<div class="card-body text-muted p-3">
-								<p class="card-text">全部真实房源, 随时预约现场看房或互动视频直播看房
+								<p class="card-text">经验丰富的购房顾问, 随时预约现场看房或互动视频直播看房
 								</p>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-6 col-lg-3 p-0 mt-2">
-						<div class="card m-1 " style="height:100%;">
+						<div class="card m-1" style="height:100%; border-width:0;">
 							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="https://tse3.mm.bing.net/th?id=OIP.BMQXAp7uwgwxCk-vmAF7DwHaFj&pid=Api&w=1592&h=1194&rs=1&p=0"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
@@ -182,7 +182,7 @@
 						</div>
 					</div>
 					<div class="col-sm-6 col-lg-3 p-0 mt-2">
-						<div class="card m-1 " style="height:100%;">
+						<div class="card m-1" style="height:100%; border-width:0;">
 							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="https://tse1.mm.bing.net/th?id=OIP.r2-Mrw0b4sR25PXo9sNTJwHaFV&pid=Api&w=1012&h=729&rs=1&p=0"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
@@ -205,13 +205,147 @@
 		</div>
 		<div id="地图" v-if="panel=='map'">
 			<nav class="nav fixed-bottom m-5">
-				<button type="button" class="btn btn-primary" style="z-index:-1" data-toggle="modal" data-target="#mapModal">
-					<h2>筛选 {{_.chain(zip).filter(filter).value().length}}项
-					</h2>
+				<button class="btn btn-success py-0 px-2" style="z-index:-1;font-size: 2rem;" data-toggle="modal" data-target="#mapModal">
+					使用说明
+
 				</button>
 			</nav>
 
 			<div id="myMap" style="height: 100vh;"></div>
+			<!-- Modal -->
+			<div class="modal" id="mapModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">使用说明</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>本地图展示伦敦地区最近7天内发布的出售中房源信息</p>
+							<p>
+								<p>红色表示首次发布的项目。蓝色表示刚刚降价的项目。圆圈中的数字表示此处房产中的卧室数</p>
+								<table>
+									<tr>
+										<td>
+											城市
+										</td>
+										<td>
+											<div class="btn-group btn-group-toggle" data-toggle="buttons">
+												<button class="btn btn-outline-secondary" active>
+													<input type="radio" name="城市" id="option1" checked> 伦敦
+												</button>
+												<button class="btn btn-outline-secondary">
+													<input type="radio" name="城市" id="option2"> 曼彻斯特
+												</button>
+												<button class="btn btn-outline-secondary">
+													<input type="radio" name="城市" id="option2"> 利物浦
+												</button>
+
+												<button class="btn btn-outline-secondary">
+													<input type="radio" name="城市" id="option2"> 格拉斯哥
+												</button>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											产权
+										</td>
+										<td>
+											<div class="btn-group btn-group-toggle" data-toggle="buttons">
+												<button class="btn btn-outline-secondary" @click="deleteFilter('freehold')">
+													<input type="radio" name="产权" id="option2"> 全部
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('freehold',true)">
+													<input type="radio" name="产权" id="option1"> 永久
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('freehold',false)">
+													<input type="radio" name="产权" id="option2"> 非永久
+												</button>
+
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											建筑
+										</td>
+										<td>
+											<div class="btn-group btn-group-toggle" data-toggle="buttons">
+													<button class="btn btn-outline-secondary" @click="deleteFilter('flat')">
+															<input type="radio" name="发布" id="option2"> 全部
+														</button>
+														<button class="btn btn-outline-secondary" @click="setFilter('flat',true)">
+													<input type="radio" name="建筑" id="option1"> 公寓
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('flat',false)">
+													<input type="radio" name="建筑" id="option2"> 别墅或其它(非公寓)
+												</button>
+
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											发布
+										</td>
+										<td>
+											<div class="btn-group btn-group-toggle" data-toggle="buttons">
+												<button class="btn btn-outline-secondary" @click="deleteFilter('newCome')">
+													<input type="radio" name="发布" id="option2"> 全部
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('newCome',true)">
+													<input type="radio" name="发布" id="option1"> 初次发布
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('newCome',false)">
+													<input type="radio" name="发布" id="option2"> 刚刚降价
+												</button>
+
+
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											卧室数
+										</td>
+										<td>
+											<div class="btn-group btn-group-toggle" data-toggle="buttons">
+												<button class="btn btn-outline-secondary" @click="setFilter('beds',0)">
+													<input type="radio" name="卧室数" id="option1"> 无
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('beds',1)">
+													<input type="radio" name="卧室数" id="option2"> 1间
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('beds',2)">
+													<input type="radio" name="卧室数" id="option2"> 2间
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('beds',3)">
+													<input type="radio" name="卧室数" id="option2"> 3间
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('beds',4)">
+													<input type="radio" name="卧室数" id="option2"> 4间
+												</button>
+												<button class="btn btn-outline-secondary" @click="setFilter('beds',5)">
+													<input type="radio" name="卧室数" id="option2"> 4间以上
+												</button>
+											</div>
+										</td>
+									</tr>
+								</table>
+<div class="alert alert-success mt-2">共计{{zip.length}}项,本次筛选{{_.filter(zip,filter).length}}</div>
+
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div id="房源详情" class="container" v-if="panel=='detail'">
@@ -253,32 +387,28 @@
 		<div id="关于" class="d-flex flex-wrap justify-content-center">
 			<div>
 
-<table>
-	<tr>
-		<td>
-				<img class="img-fluid" style="height:10rem" src="https://i.loli.net/2018/12/15/5c14773a07438.jpg" />
-		</td>
-		<td class="text-muted pl-2">
-				<h5>{{nickname}}&nbsp;&nbsp;<span style="font-size: .5rem">首席投资顾问</span> </h5>
-				<p class="border-top">
-					剑桥海外投资基金联合创始人<br />
-					英国剑桥大学MBA<br />
-					注册会计师 注册金融分析师 经济学博士<br />
-					英国经济学人集团宏观经济研究顾问
-				</p>
-			</td>
-	</tr>
-</table>
-
-
-
-				
+				<table>
+					<tr>
+						<td>
+							<img class="img-fluid" style="height:10rem" src="https://s1.ax1x.com/2018/12/16/FabYUf.jpg" />
+						</td>
+						<td class="text-muted pl-2">
+							<h5>{{nickname}}&nbsp;&nbsp;<span style="font-size: .5rem">首席投资顾问</span> </h5>
+							<p class="border-top">
+								中科剑桥海外投资基金联合创始人<br />
+								英国剑桥大学MBA<br />
+								注册会计师 注册金融分析师 经济学博士<br />
+								英国经济学人集团宏观经济研究顾问
+							</p>
+						</td>
+					</tr>
+				</table>
 			</div>
 			<div class="my-auto mx-3 text-muted">
-				
+
 			</div>
 			<div id="集团介绍" class="my-auto mx-3 text-muted ">
-				<h5>剑桥海外地产投资集团</h5>
+				<h5>中科剑桥海外地产投资集团</h5>
 				<p class="border-top">
 					由剑桥大学商学院和牛津大学商学院中国校友会联合多位英国华人精英共同创立.<br />
 					英国房地产协会中国唯一合作伙伴.<br />
@@ -311,128 +441,7 @@
 		</div>
 
 
-		<!-- Modal -->
-		<div class="modal" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">筛选条件</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-							
-						<table>
-								<tr>
-										<td>
-											城市
-										</td>
-										<td>
-											<div class="btn-group btn-group-toggle" data-toggle="buttons">
-												<button class="btn btn-outline-secondary" active>
-													<input type="radio" name="城市" id="option1" checked> 伦敦
-												</button>
-												<button class="btn btn-outline-secondary" >
-													<input type="radio" name="城市" id="option2"> 曼彻斯特
-												</button>
-												<button class="btn btn-outline-secondary" >
-														<input type="radio" name="城市" id="option2"> 利物浦
-													</button>
-		
-													<button class="btn btn-outline-secondary" >
-															<input type="radio" name="城市" id="option2"> 格拉斯哥
-														</button>
-												</div>
-										</td>
-									</tr>
-							<tr>
-								<td>
-									产权
-								</td>
-								<td>
-									<div class="btn-group btn-group-toggle" data-toggle="buttons">
-										<button class="btn btn-outline-secondary" @click="setFilter('freehold',true)">
-											<input type="radio" name="产权" id="option1"> 永久
-										</button>
-										<button class="btn btn-outline-secondary" @click="setFilter('freehold',false)">
-											<input type="radio" name="产权" id="option2"> 非永久
-										</button>
 
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									建筑
-								</td>
-								<td>
-									<div class="btn-group btn-group-toggle" data-toggle="buttons">
-										<button class="btn btn-outline-secondary" @click="setFilter('flat',true)">
-											<input type="radio" name="建筑" id="option1"> 公寓
-										</button>
-										<button class="btn btn-outline-secondary" @click="setFilter('flat',false)">
-											<input type="radio" name="建筑" id="option2"> 别墅或其它(非公寓)
-										</button>
-
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									发布
-								</td>
-								<td>
-									<div class="btn-group btn-group-toggle" data-toggle="buttons">
-										<button class="btn btn-outline-secondary" @click="setFilter('newCome',true)">
-											<input type="radio" name="发布" id="option1"> 新发布
-										</button>
-										<button class="btn btn-outline-secondary" @click="setFilter('newCome',false)">
-											<input type="radio" name="发布" id="option2"> 刚刚降价
-										</button>
-
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									卧室数
-								</td>
-								<td>
-									<div class="btn-group btn-group-toggle" data-toggle="buttons">
-										<button class="btn btn-outline-secondary" @click="setFilter('beds',0)">
-											<input type="radio" name="卧室数" id="option1"> 无
-										</button>
-										<button class="btn btn-outline-secondary" @click="setFilter('beds',1)">
-											<input type="radio" name="卧室数" id="option2"> 1间
-										</button>
-										<button class="btn btn-outline-secondary" @click="setFilter('beds',2)">
-											<input type="radio" name="卧室数" id="option2"> 2间
-										</button>
-										<button class="btn btn-outline-secondary" @click="setFilter('beds',3)">
-											<input type="radio" name="卧室数" id="option2"> 3间
-										</button>
-										<button class="btn btn-outline-secondary" @click="setFilter('beds',4)">
-											<input type="radio" name="卧室数" id="option2"> 4间
-										</button>
-										<button class="btn btn-outline-secondary" @click="setFilter('beds',5)">
-											<input type="radio" name="卧室数" id="option2"> 4间以上
-										</button>
-									</div>
-								</td>
-							</tr>
-						</table>
-						
-当前筛选结果数:
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-						
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<script src="https://cdn.staticfile.org/vue/2.5.17/vue.js"></script>
@@ -830,12 +839,13 @@
 					this.resetMap()
 				}, deleteFilter(k) {
 					Vue.delete(v1.filter, k)
+					this.resetMap()
 				}, resetMap() {
 					let that = this;
 					let map = new Microsoft.Maps.Map(document.getElementById("myMap"), {
 						center: new Microsoft.Maps.Location(51.50632, -0.12714),
 						mapTypeId: Microsoft.Maps.MapTypeId.road,
-						zoom: 12
+						zoom: 14
 					});
 
 					var infobox = new Microsoft.Maps.Infobox(map.center, {
@@ -846,8 +856,8 @@
 					_.filter(that.zip, that.filter).forEach(lo => {
 						loc = new Microsoft.Maps.Location(lo.lat, lo.lng);
 						pushpin = new Microsoft.Maps.Pushpin(loc, {
-							color: lo.newCome ? "red" : "green",
-							text: lo.newCome ? "新" : "降",
+							color: lo.newCome ? "red" : "blue",
+							text: lo.beds.toString(),
 							title: "£" + lo.price.toLocaleString()
 						});
 						map.entities.push(pushpin);
@@ -867,7 +877,7 @@
 									'"target="_blank"><img class="img-fluid" src="' +
 									lo.pic +
 									'"/></a>' +
-									lo.beds +
+									lo.beds + (lo.beds > 4 ? '+' : '') +
 									"卧室, 半独立别墅<br>资料更新日期2018-12-12" +
 									tenure +
 									"<br></div>",

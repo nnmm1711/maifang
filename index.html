@@ -208,7 +208,7 @@
 			</div>
 			<template v-for="v in r.last20">
 				<div class="borderTxt m-1 rounded animated flipInX wow" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+v.pics[0]+")"}'>
-					<p class="m-1"> 更新于英国时间{{v.updated}}<br>
+					<p class="m-1"> 发布于英国时间{{v.updated}}<br>
 						{{v.beds}}居
 						&pound;{{ v.price.toLocaleString() }}</p>
 				</div>

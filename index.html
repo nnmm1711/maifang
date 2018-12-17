@@ -200,8 +200,19 @@
 			</div>
 		</div>
 
-		<div id="最新几套房" v-if="panel=='front'">
-			<p>最新登场</p>
+
+		<div id="新登场20" v-if="panel=='front'" class="d-flex flex-wrap mb-5 justify-content-center">
+
+			<div class="alert alert-secondary w-100">
+				<h1>最新登场房源 </h1>
+			</div>
+			<template v-for="v in r.last20">
+				<div class="borderTxt m-1 rounded" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+v.pics[0]+")"}'>
+					<p class="m-1"> 更新于英国时间{{v.updated}}<br>
+						{{v.beds}}居
+						&pound;{{ v.price.toLocaleString() }}</p>
+				</div>
+			</template>
 
 		</div>
 
@@ -399,7 +410,7 @@
 							<img class="img-fluid" style="height:10rem" src="https://s1.ax1x.com/2018/12/16/FabYUf.jpg" />
 						</td>
 						<td class="text-muted pl-2">
-							<h5>{{nickname}}&nbsp;&nbsp;<span style="font-size: .5rem">首席投资顾问</span> </h5>
+							<h5><span style="font-size: .5rem">首席投资顾问</span>&nbsp;&nbsp; {{nickname}}</h5>
 							<p class="border-top">
 								剑桥海外投资基金联合创始人<br />
 								英国剑桥大学MBA<br />
@@ -945,6 +956,8 @@
 
 
 
+				} else {
+					await this.post("http://a.greencyw.com", { k: "get20ForFrontPage" });
 				}
 				this.$nextTick(function () {
 

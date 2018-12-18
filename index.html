@@ -12,15 +12,25 @@
 	<link rel="icon" href="http://pc1.gtimg.com/finance/softweb/fav/favicon_32x32.ico" type="image/x-icon" />
 	<link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 	<style>
-		.borderTxt {
+		.borderTxt2 {
 		color: white;
-
 		text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0;
 		-webkit-text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0,
 		  #000 0 -1px 0;
 		-moz-text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0,
 		  #000 0 -1px 0;
 		*filter: Glow(color=#000, strength=1);
+	  }
+	  .borderTxt3 {
+		color: white;
+		text-shadow: 5px 5px 8px rgb(0, 0, 0)
+		
+	  }
+		.borderTxt {
+		color: white;
+background-color: rgba(0, 0, 0, 0.5);
+border-radius:5px;
+		
 	  }
 	  .selectedItem {
 		border-width: 18px 18px 18px 18px;
@@ -37,14 +47,15 @@
 
 <body>
 	<div id="app">
-		<div v-if='panel=="front"' id="标题栏" class="d-flex flex-wrap justify-content-around " style="height:30vh; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
-			<div class="my-auto mr-auto animated flip delay-1s" style="background-color: rgba(0, 0, 0, 0.6)">
-				<span class="text-light " style="font-size:  7vh;">英国房产大全</span>
+		<div v-if='panel=="front"' id="标题栏" class="d-flex flex-wrap justify-content-around " 
+		style="height:30vh; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
+			<div class="m-auto mr-auto animated flip delay-1s" >
+				<span class="borderTxt3" style="font-size:  7vh;">英国房产大全</span>
 			</div>
 		</div>
 		<nav id="导航条" class="navbar navbar-expand-lg navbar-dark sticky-top p-1" style="background:rgba(0, 0, 0, 0.8);">
 			<div class="container">
-				<a class="navbar-brand" href="?mode=front" @click="panel='front'"><img src="https://i.loli.net/2018/12/15/5c143ffc7bbb7.png" />首页</a>
+				<a class="navbar-brand" href="?mode=front" @click="panel='front'"><img src="https://i.loli.net/2018/12/15/5c143ffc7bbb7.png" /></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -73,8 +84,6 @@
 			</div>
 		</nav>
 
-
-
 		<div v-if='panel=="front"' id="分块介绍" class="mx-4" style="border-width:0;">
 			<div class="row">
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
@@ -82,11 +91,11 @@
 						<div class="card m-1 " style="height:100%; border-width:0;">
 							<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="https://tse4.mm.bing.net/th?id=OIP.JtnzacjFxNWGmNDTX11msgHaE9&pid=Api&w=1270&h=850&rs=1&p=0"
 							 alt="Card image cap">
-							<div class="card-img-overlay p-1">
-								<h3 class="card-title borderTxt">每小时更新全英国房源</h3>
+							<div class="card-img-overlay p-1 d-flex">
+								<h3 class="card-title"><span class="borderTxt2">每小时更新全英国房源</span></h3>
 							</div>
 							<div class="card-body text-muted  p-3">
-								<p class="card-text">好房不等人。 
+								<p class="card-text">好房不等人。
 									剑桥海外投资集团联合英国房地产协会为您独家提供英国主要城市全部在售房产信息，每小时滚动更新</p>
 
 							</div>
@@ -99,7 +108,7 @@
 							<img class="rounded card-img-top animated zoomIn wow " style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fy61zl4zl8j30og0g3djl.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
-								<h3 class="card-title borderTxt">全景地图选房</h3>
+								<h3 class="card-title"><span class="borderTxt2">全景地图选房</span></h3>
 							</div>
 							<div class="card-body text-muted p-3">
 								<p class="card-text">地段是房产价值的第一大要素 本站全部房源以互动地图方式呈现, 一目了然
@@ -114,7 +123,7 @@
 						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="https://tse4-mm.cn.bing.net/th?id=OIP.uWpVVTdK0u8DJwtXWTJUKAHaE8&pid=Api&w=900&h=600&rs=1&p=0"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
-							<h3 class="card-title borderTxt">精品豪宅资讯</h3>
+							<h3 class="card-title"><span class="borderTxt2">精品豪宅资讯</span></h3>
 						</div>
 						<div class="card-body text-muted p-3">
 							<p class="card-text">每日精选最新上市的精品豪宅，本站比其它国家买家更早获得顶级豪宅的第一手资料
@@ -128,7 +137,7 @@
 							<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="https://www.britishcouncil.ge/sites/default/files/study-in-the-uk-boarding-school-ge-yp.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
-								<h3 class="card-title borderTxt">精选学区房</h3>
+								<h3 class="card-title"><span class="borderTxt2">高端学区房</span></h3>
 							</div>
 							<div class="card-body text-muted p-3">
 								<p class="card-text">历史成交价格，附近房产成交价格，附近学区 商业 交通。社区文化。租金走势，租金回报率，投资回报率预估
@@ -143,7 +152,7 @@
 							<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/large/0060lm7Tly1fy79xuw0loj30ap06e0t9.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
-								<h3 class="card-title borderTxt">联合全英国地产界精英</h3>
+								<h3 class="card-title"><span class="borderTxt2">英国地产界精英团队</span></h3>
 							</div>
 							<div class="card-body text-muted p-3">
 								<p class="card-text">英国房地产协会中国区独家合作伙伴, 精选遍布英国全境的顶级地产律师事务所共同提供专业服务(点击查看联盟成员清单)
@@ -162,7 +171,7 @@
 						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="https://tse3.mm.bing.net/th?id=OIP.ryknJSxTuXbhkej7gKaIRgHaE8&pid=Api&w=1600&h=1067&rs=1&p=0"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
-							<h3 class="card-title borderTxt">专业房产投资顾问</h3>
+							<h3 class="card-title"><span class="borderTxt2">专业房产投资顾问</span></h3>
 						</div>
 						<div class="card-body text-muted p-3">
 							<p class="card-text">经验丰富的购房顾问, 随时预约现场看房或互动视频直播看房
@@ -175,7 +184,7 @@
 						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="https://tse3.mm.bing.net/th?id=OIP.BMQXAp7uwgwxCk-vmAF7DwHaFj&pid=Api&w=1592&h=1194&rs=1&p=0"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
-							<h3 class="card-title borderTxt">全流程服务</h3>
+							<h3 class="card-title"><span class="borderTxt2">全流程服务</span></h3>
 						</div>
 						<div class="card-body text-muted p-3">
 							<p class="card-text">税务，过户，交易，物业，出租，出售
@@ -188,7 +197,7 @@
 						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="https://tse1.mm.bing.net/th?id=OIP.r2-Mrw0b4sR25PXo9sNTJwHaFV&pid=Api&w=1012&h=729&rs=1&p=0"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
-							<h3 class="card-title borderTxt">隐私保护</h3>
+							<h3 class="card-title"><span class="borderTxt">隐私保护</span></h3>
 						</div>
 						<div class="card-body text-muted p-3">
 							<p class="card-text">保护客户的隐私始终是我们工作的重中之重
@@ -203,14 +212,17 @@
 
 		<div id="新登场20" v-if="panel=='front'" class="d-flex flex-wrap mb-5 justify-content-center">
 
-			<div class="alert alert-secondary w-100">
-				<h1>最新登场房源 </h1>
+			<div class="alert alert-warning w-100 text-muted text-center">
+				<h3>最新登场房源</h3><span>(每60分钟动态更新)</span>
 			</div>
 			<template v-for="v in r.last20">
-				<div class="borderTxt m-1 rounded animated flipInX wow" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+v.pics[0]+")"}'>
-					<p class="m-1"> 发布于英国时间{{v.updated}}<br>
-						{{v.beds}}居
-						&pound;{{ v.price.toLocaleString() }}</p>
+				<div v-if="v.pics" class=" m-1 rounded animated flipInX wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+v.pics[0]+")"}'>
+					<p class="m-1"> <span class="borderTxt">{{v.beds}}居
+							&pound;{{ v.price.toLocaleString() }}<br>
+						
+						发布于英国时间{{v.updated}}
+					
+					</span></p>
 				</div>
 			</template>
 
@@ -378,7 +390,7 @@
 					土地权:{{ selectedItem.tenure }}&nbsp;&nbsp;
 					更新于:{{ selectedItem.updated.substring(0, 10)}}&nbsp;&nbsp;
 					类型:{{selectedItem.type == "new" ? "新发售" : "降价促销" }}&nbsp;&nbsp;
-					英国购房地图网房源编号:{{ selectedItem.id }}
+					本站房源编号:{{ selectedItem.id }}
 				</p>
 			</div>
 			<div v-if="selectedItem.kf_cn" class="alert alert-warning">
@@ -436,12 +448,12 @@
 			</div>
 		</div>
 		<div id="footer" class="alert alert-secondary text-muted m-0 p-6 d-flex flex-wrap justify-content-center">
-				<div class="m-3">
-						<h2>
-							请扫二维码加客服微信
-						</h2>
-					</div>
-					<div>
+			<div class="m-3">
+				<h2>
+					请扫二维码加客服微信
+				</h2>
+			</div>
+			<div>
 				<img class="img-fluid " style="width:8rem" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fy2k6xk9v4j307t0bbmxn.jpg"
 				 alt="英国房产地产投资 剑桥海外投资集团 伦敦买房" />
 			</div>
@@ -914,6 +926,9 @@
 				}
 			},
 			mounted: async function () {
+				//await this.post('http://ddns.greencyw.com/auth')
+				//window.location.href="http://baidu.com"
+				
 				let params = new URLSearchParams(window.location.search);
 				let id = params.get("id");
 				if (id) {

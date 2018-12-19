@@ -229,7 +229,7 @@ border-radius:5px;
 				<a :href="'?id='+v.id*89" target="_blank">
 					<div v-if="v.pics" class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"allset/"+v.id+"/00.jpg)"}'>
 						<p class="m-1">
-							<span class="borderTxt">{{v.beds}}居
+							<span class="borderTxt">{{calcDistance(v.lat,v.lng)}}{{v.beds}}居
 								&pound;{{ v.price.toLocaleString() }}<br>
 								发布于北京时间{{dateFormat(v.updated)}}
 							</span>
@@ -421,7 +421,7 @@ border-radius:5px;
 			<p>{{ r.info.desc_cn }}</p>
 
 			<div class="alert alert-success">
-				加客服微信获取此房产历史交易信息，周边交易价格，周边配套学校等详细资料。扫码预约互动视频直播看房
+				加客服微信获取此房产建筑平面图, 历史交易信息，周边交易价格，周边配套学校等详细资料。随时预约现场看房，或互动视频直播看房。可随时安排赴英国商务考察。
 			</div>
 
 			<hr />
@@ -492,7 +492,7 @@ border-radius:5px;
 		</div>
 	</div>
 	<script src="https://cdn.staticfile.org/dayjs/1.7.7/dayjs.min.js"></script>
-	<script src="https://cdn.staticfile.org/vue/2.5.17/vue.min.js"></script>
+	<script src="https://cdn.staticfile.org/vue/2.5.17/vue.js"></script>
 
 	<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/lodash.js/4.17.11/lodash.min.js"></script>
@@ -873,6 +873,35 @@ border-radius:5px;
 				]
 			},
 			methods: {
+				calcDistance:function(x,y){
+					xd=x-51.512198;
+					yd=y-(-0.122199);
+					if (Math.abs(yd)>Math.abs(xd)){
+						if (Math.abs(yd)>2*Math.abs(xd)){
+							if (yd>0){dir='正东';}else{dir='正西';}
+						}else{
+							if(xd>0){
+								if (yd>0){dir='东偏北';}else{dir='西偏北';}
+							}else{
+								if (yd>0){dir='东偏南';}else{dir='西偏南';}
+							}
+						}
+					}else{	
+						if (Math.abs(xd)>2*Math.abs(yd)){
+							if (xd>0){dir='正北';}else{dir='正南';}
+						}else{
+							if(yd>0){
+								if (xd>0){dir='北偏东';}else{dir='南偏西';}
+							}else{
+								if (xd>0){dir='北偏西';}else{dir='南偏西';}
+							}
+						}				
+						
+					}
+					distance=Math.sqrt(Math.pow(xd,2)+Math.pow(yd,2));
+					circle=Math.floor(distance/0.0185);
+					return dir+circle+'环'
+				},
 				dateFormat: function (input) {
 					return dayjs(input).format('YYYY年MM月DD日HH:mm:ss');
 				},

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--新登场北京时间，marquee更新提示 清理真实id-->
+<!--日期筛选价格筛选 详情页图片转本地 清理真实id-->
 <html>
 
 <head>
@@ -75,6 +75,12 @@ border-radius:5px;
 				</div>
 			</div>
 		</nav>
+		<!--
+http://wx4.sinaimg.cn/large/0060lm7Tly1fydjtemg6ij30sg0gomzw.jpg
+http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg
+http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
+
+		-->
 		<div v-if='panel=="front"' id="标题栏" class="d-flex  flex-column-reverse " style="height:50vmin; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
 			<div style="background-color: rgba(0, 0, 0, 0.4)">
 				<p class="text-light text-center" style="font-size: 7vmin;">英国房产大全</p>
@@ -82,7 +88,7 @@ border-radius:5px;
 				 scrollamount="5" scrolldelay="0" loop="-1">
 
 					<template v-for="i in _.chain(zip).countBy('date').toPairs().orderBy((x)=>{return x[0]},'desc').value()">
-						<button style="font-size:3vmin;" class="btn btn-outline-light m-1 py-1 px-2">
+						<button style="font-size:3vmin;background-color: rgba(255, 255, 255, 0.2)" class="btn btn-outline-light m-1 py-1 px-2">
 							{{i[0].substring(0,2)}}月{{i[0].substring(2,4)}}日伦敦新增房源{{i[1]}}项</button>
 					</template>
 				</marquee>
@@ -98,7 +104,7 @@ border-radius:5px;
 			<div class="row">
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="?mode=map">
-						<div class="card m-1 " style="height:100%; border-width:0;">
+						<div class="card m-2" style="height:100%; border-width:0;">
 							<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydfd96qn5j30za0nmq5d.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1 d-flex">
@@ -112,7 +118,7 @@ border-radius:5px;
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="?mode=map">
-						<div class="card m-1" style="height:100%; border-width:0;">
+						<div class="card m-2" style="height:100%; border-width:0;">
 							<img class="rounded card-img-top animated zoomIn wow " style="width:100%; height:12rem;" :src="server+'wwwpic/map.jpg'"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
@@ -127,7 +133,7 @@ border-radius:5px;
 					</a>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-1" style="height:100%; border-width:0;">
+					<div class="card m-2" style="height:100%; border-width:0;">
 						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydeu1ji82j30p00go40b.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
@@ -140,7 +146,7 @@ border-radius:5px;
 					</div>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-1" style="height:100%; border-width:0;">
+					<div class="card m-2" style="height:100%; border-width:0;">
 						<a href="#">
 							<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydefhdibvj30d607eq47.jpg"
 							 alt="Card image cap">
@@ -156,7 +162,7 @@ border-radius:5px;
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="javascript:void(0);" @click="showlogos=true">
-						<div class="card m-1" style="height:100%; border-width:0;">
+						<div class="card m-2" style="height:100%; border-width:0;">
 							<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/large/0060lm7Tly1fy79xuw0loj30ap06e0t9.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
@@ -171,11 +177,11 @@ border-radius:5px;
 				</div>
 				<div id="logos" name="logos" v-if="showlogos">
 					<template v-for="i in logos">
-						<img class="img-fluid m-1" style="width:60px;height:25px;" :src="'http://lx.b2uk.com:50080/logos/'+i" />
+						<img class="img-fluid m-2" style="width:60px;height:25px;" :src="'http://lx.b2uk.com:50080/logos/'+i" />
 					</template>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-1" style="height:100%; border-width:0;">
+					<div class="card m-2" style="height:100%; border-width:0;">
 						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydetdjr0aj318g0tn76t.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
@@ -188,11 +194,11 @@ border-radius:5px;
 					</div>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-1" style="height:100%; border-width:0;">
-						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1fydesqetk5j31410u0dio.jpg"
+					<div class="card m-2" style="height:100%; border-width:0;">
+						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/large/0060lm7Tly1fydjtemg6ij30sg0gomzw.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
-							<h3 class="card-title"><span class="borderTxt2">全流程代办服务</span></h3>
+							<h3 class="card-title"><span class="borderTxt2">全流程服务</span></h3>
 						</div>
 						<div class="card-body text-muted p-3">
 							<p class="card-text">商务考察接待，税务咨询，过户，交易，物业代理，出租，出售，传承
@@ -201,7 +207,7 @@ border-radius:5px;
 					</div>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-1" style="height:100%; border-width:0;">
+					<div class="card m-2" style="height:100%; border-width:0;">
 						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="https://tse1.mm.bing.net/th?id=OIP.r2-Mrw0b4sR25PXo9sNTJwHaFV&pid=Api&w=1012&h=729&rs=1&p=0"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
@@ -458,37 +464,44 @@ border-radius:5px;
 			<div id='MapForDetail' class="mx-auto" style="height: 50vmin; "></div>
 		</div>
 
-		<div id="关于" class="d-flex flex-wrap justify-content-center" v-if="panel=='front'">
+		<div id="关于" class="py-5  my-5 d-flex flex-wrap justify-content-center" v-if="panel=='front'">
 			<div>
 				<table>
-					<tr>
+					<tr style="height:15rem">
 						<td>
-							<img v-if="server" class="img-fluid" style="height:10rem" :src="server+'wwwpic/icon.jpg'" />
+							<img v-if="server" class="img-fluid"  :src="server+'wwwpic/icon.jpg'" />
 						</td>
-						<td class="text-muted pl-2">
+						<td class="text-muted pl-2 mt-3">
 							<h5><span style="font-size: .5rem">首席投资顾问</span>&nbsp;&nbsp; {{nickname}}</h5>
 							<p class="border-top">
 								剑桥海外投资基金联合创始人<br />
 								英国剑桥大学MBA<br />
 								注册会计师 注册金融分析师 经济学博士<br />
-								英国经济学人集团宏观经济研究顾问
+								英国经济学人集团宏观经济研究顾问<br>
+								丰富的海外地产投资经验
 							</p>
 						</td>
 					</tr>
 				</table>
 			</div>
-			<div class="my-auto mx-3 text-muted">
-
-			</div>
-			<div id="集团介绍" class="my-auto mx-3 text-muted ">
+			
+			<div id="集团介绍" class="my-5 mx-3 text-muted ">
+					
 				<h5>剑桥海外地产投资集团</h5>
-				<p class="border-top">
-					由剑桥大学商学院, 牛津大学商学院中国校友会及多位英国华人精英联合创立.<br />
-					英国房地产协会中国唯一合作伙伴.<br />
-					与英国房产协会同步滚动更新在售项目信息<br />
-					提供视频看房，一站式购房顾问和项目托管服务
 
-				</p>
+
+				<div class="media border-top">
+						<img v-if="server" style="zoom: .4;" class="img-fluid m-2"  :src="server+'wwwpic/jqhw.gif'" />
+						<div class="media-body">
+								由剑桥大学商学院, 牛津大学商学院中国校友会及多位英国华侨联合创立.<br />
+								英国房地产协会中国唯一合作伙伴.<br />
+								与英国房产协会同步滚动更新在售项目信息<br />
+								提供视频看房，一站式购房顾问和项目托管服务
+						</div>
+					  </div>
+
+
+			
 			</div>
 		</div>
 		<div id="footer" class="alert alert-secondary text-muted m-0 p-6 d-flex flex-wrap justify-content-center">
@@ -521,15 +534,12 @@ border-radius:5px;
 	</div>
 	<script src="https://cdn.staticfile.org/dayjs/1.7.7/dayjs.min.js"></script>
 	<script src="https://cdn.staticfile.org/vue/2.5.17/vue.js"></script>
-
 	<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
-
 	<script src="https://cdn.staticfile.org/lodash.js/4.17.11/lodash.min.js"></script>
 	<script src="https://cdn.staticfile.org/wow/1.1.2/wow.min.js"></script>
 	<script async defer src="https://cdn.staticfile.org/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 	<script async defer type="text/javascript" src="https://cn.bing.com/api/maps/mapcontrol?key=Ap0AObt84NcDaUThCeWOj52ZqUHv6k4TJhjLibR-DghC-semgoj-0uPbIi8r0E4j&callback=loadMapScenario"></script>
 	<script src="https://cdn.staticfile.org/js-cookie/latest/js.cookie.min.js"></script>
-
 	<script src="https://cdn.staticfile.org/qrious/4.0.2/qrious.min.js"></script>
 	<script>
 		new WOW().init();

@@ -154,7 +154,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 								<h3 class="card-title"><span class="borderTxt2">高端学区房</span></h3>
 							</div>
 							<div class="card-body text-muted p-3">
-								<p class="card-text">深入理解学区房，综合分析历史成交价格，附近学区 商业 交通 社区文化 租金走势。提供租金回报率和投资回报率预估
+								<p class="card-text">详细的学区房资料，综合分析历史成交价格 商业 交通 社区文化 租金走势。提供租金回报率和投资回报率分析预估
 								</p>
 							</div>
 						</a>
@@ -467,46 +467,37 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 		<div id="关于" class="py-5  my-5 d-flex flex-wrap justify-content-center" v-if="panel=='front'">
 			<div>
 				<table>
-					<tr style="height:15rem">
+					<tr>
 						<td>
-							<img v-if="server" class="img-fluid"  :src="server+'wwwpic/icon.jpg'" />
+							<img v-if="server" class="img-fluid" style="zoom: .8;" :src="server+'wwwpic/icon.jpg'" />
 						</td>
-						<td class="text-muted pl-2 mt-3">
+						<td class="text-muted pl-2 ">
 							<h5><span style="font-size: .5rem">首席投资顾问</span>&nbsp;&nbsp; {{nickname}}</h5>
 							<p class="border-top">
 								剑桥海外投资基金联合创始人<br />
 								英国剑桥大学MBA<br />
 								注册会计师 注册金融分析师 经济学博士<br />
-								英国经济学人集团宏观经济研究顾问<br>
-								丰富的海外地产投资经验
+								英国经济学人集团宏观经济研究顾问
 							</p>
 						</td>
 					</tr>
 				</table>
 			</div>
-			
-			<div id="集团介绍" class="my-5 mx-3 text-muted ">
-					
+
+			<div id="集团介绍" class="mt-5 py-2 mx-3 text-muted ">
 				<h5>剑桥海外地产投资集团</h5>
-
-
 				<div class="media border-top">
-						<img v-if="server" style="zoom: .4;" class="img-fluid m-2"  :src="server+'wwwpic/jqhw.gif'" />
-						<div class="media-body">
-								由剑桥大学商学院, 牛津大学商学院中国校友会及多位英国华侨联合创立.<br />
-								英国房地产协会中国唯一合作伙伴.<br />
-								与英国房产协会同步滚动更新在售项目信息<br />
-								提供视频看房，一站式购房顾问和项目托管服务
-						</div>
-					  </div>
-
-
-			
+					<img v-if="server" style="zoom: .4;" class="img-fluid m-2" :src="server+'wwwpic/jqhw.gif'" />
+					<div class="media-body">
+						由剑桥大学商学院, 牛津大学商学院中国校友会及多位英国华侨联合创立.<br />
+						英国房地产协会中国唯一合作伙伴.<br />
+						与英国房产协会同步滚动更新在售项目信息<br />
+						提供视频看房，一站式购房顾问和项目托管服务
+					</div>
+				</div>
 			</div>
 		</div>
 		<div id="footer" class="alert alert-secondary text-muted m-0 p-6 d-flex flex-wrap justify-content-center">
-
-
 			<div class="m-3">
 				<p>
 					北京: <br />
@@ -526,9 +517,6 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					客服微信
 				</span><br>
 				<img v-if="server" class="img-fluid " style="width:8rem" :src="server+'wwwpic/qr.png'" alt="英国房产地产投资 剑桥海外投资集团 伦敦买房" />
-			</div>
-			<div>
-
 			</div>
 		</div>
 	</div>

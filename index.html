@@ -32,7 +32,7 @@
 	  }
 		.borderTxt {
 		color: white;
-background-color: rgba(0, 0, 0, 0.5);
+background-color: rgba(0, 0, 0, .8);
 border-radius:5px;		
 	  }	
 	  a:hover {
@@ -84,14 +84,14 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 		<div v-if='panel=="front"' id="标题栏" class="d-flex  flex-column-reverse " style="height:50vmin; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
 			<div style="background-color: rgba(0, 0, 0, 0.4)">
 				<p class="text-light text-center" style="font-size: 7vmin;">英国房产大全</p>
-				<marquee v-if="panel=='front'" onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="left"
+				<!--marquee v-if="panel=='front'" onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="left"
 				 scrollamount="5" scrolldelay="0" loop="-1">
 
 					<template v-for="i in _.chain(zip).countBy('date').toPairs().orderBy((x)=>{return x[0]},'desc').value()">
 						<button style="font-size:3vmin;background-color: rgba(255, 255, 255, 0.2)" class="btn btn-outline-light m-1 py-1 px-2">
 							{{i[0].substring(0,2)}}月{{i[0].substring(2,4)}}日伦敦新增房源{{i[1]}}项</button>
 					</template>
-				</marquee>
+				</marquee-->
 
 
 			</div>
@@ -119,7 +119,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="?mode=map">
 						<div class="card m-2" style="height:100%; border-width:0;">
-							<img class="rounded card-img-top animated zoomIn wow " style="width:100%; height:12rem;" :src="server+'wwwpic/map.jpg'"
+							<img class="rounded card-img-top animated zoomIn wow " style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1fyi1xn1qhij30cl09375o.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
 								<h3 class="card-title"><span class="borderTxt2">全景地图选房</span></h3>
@@ -223,25 +223,28 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 			</div>
 		</div>
 
-
-		<div id="新登场20" v-if="panel=='front'&&server" class="d-flex flex-wrap mb-5 justify-content-center">
-
-			<div class="alert alert-secondary w-100 text-muted text-center">
-				<h3>最新登场房源 - 伦敦</h3><span>(每分钟动态更新)</span>
+		<template id="新登场" v-if="panel=='front'&&server&&r.coverData" v-for="c in coverCities">
+			<div class=" mb-5">
+				<div class="alert alert-secondary w-100 text-muted text-center">
+					<h3>新登场房源 - {{c.cn}}</h3><span>(每分钟动态更新)</span>
+				</div>
+				<div class="mx-md-4 d-flex flex-wrap  justify-content-center">
+					<template v-for="v in _.take(unzip(r.coverData[c.name]),c.frontPageCount)">
+						<a :href="'?id='+v.id" target="_blank">
+							<div class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
+								<p class="m-1">
+									<span class="borderTxt">{{calcDistance(v.lat,v.lng,c.lat,c.lng)}}{{v.beds}}居
+										&pound;{{ (v.price*1000).toLocaleString()}}<br>
+										发布于英国时间{{v.date.substring(2,4)}}月{{v.date.substring(4,6)}}日{{v.date.substring(6,8)}}:{{v.date.substring(8,10)}}
+									</span>
+								</p>
+							</div>
+						</a>
+					</template>
+				</div>
 			</div>
-			<template v-for="v in r.last20">
-				<a :href="'?id='+v.id*89" target="_blank">
-					<div v-if="v.pics" class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"allset/"+v.id+"/00.jpg)"}'>
-						<p class="m-1">
-							<span class="borderTxt">{{calcDistance(v.lat,v.lng)}}{{v.beds}}居
-								&pound;{{ v.price.toLocaleString() }}<br>
-								发布于北京时间{{dateFormat(v.updated)}}
-							</span>
-						</p>
-					</div>
-				</a>
-			</template>
-		</div>
+		</template>
+
 		<div id="地图" v-if="panel=='map'">
 			<nav class="nav fixed-bottom m-5">
 				<button class="btn btn-warning py-0 px-2" style="z-index:-1;font-size: 2rem;" data-toggle="modal" data-target="#mapModal">
@@ -398,7 +401,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 		</div>
 
 		<div id='profile' v-if="panel=='profile'" style="height:80vmin;">
-			个人资料
+			个人资料{{this.rand}}
 			<canvas id='qrForFriends'></canvas>
 			<hr>
 
@@ -452,7 +455,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 			<p>{{ r.info.desc_cn }}</p>
 
 			<div class="alert alert-success">
-				加客服微信获取此房产建筑平面图, 历史交易信息，周边交易价格，周边配套学校等详细资料。随时预约现场看房，或互动视频直播看房。可随时安排赴英国商务考察。
+				加客服微信获取此房产建筑平面图, 历史交易信息，周边交易价格，周边配套学校等详细资料。随时预约现场看房，或互动视频直播看房。随时接待英国商务考察团。
 			</div>
 
 			<hr />
@@ -538,19 +541,6 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 		var v1 = new Vue({
 			el: "#app",
 			data: {
-				r: {},
-				zip: [],
-				rand: 0,
-				filter: {},
-				nickname: "馬 寧",
-				bounds: "",
-				panel: "front",
-				loaded: false,
-				showbuffer: false,
-				pointer: 0,
-				frontImg: "http://wx4.sinaimg.cn/large/0060lm7Tly1fxzmql2s5cj318g0tj4qp.jpg",
-				showlogos: false,
-				server: false,
 				logos: [
 					"branch_logo_10982_0000_max_100x50.jpeg",
 					"branch_logo_12585_0000_max_100x50.jpeg",
@@ -898,11 +888,45 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					"clogo_rmchoice_978_0004_max_100x50.jpeg",
 					"clogo_rmchoice_9803_0002_max_100x50.jpeg"
 				]
+				, r: {},
+				ind: ['date', 'beds', 'flat', 'newCome', 'freehold', 'id', 'lat', 'lng', 'price'],
+				coverCities: [
+					{ name: "London", lat: 51.512198, lng: -0.122199, frontPageCount: 15, cn: '伦敦' },
+					{ name: "Birmingham", lat: 52.479511, lng: -1.901597, frontPageCount: 10, cn: '伯明翰' },
+					{ name: "Manchester", lat: 53.4792, lng: -2.24807, frontPageCount: 10, cn: '曼彻斯特' },
+				],
+				zip: [],
+				rand: 0,
+				filter: {},
+				nickname: "馬 寧",
+				bounds: "",
+				panel: "front",
+				loaded: false,
+				showbuffer: false,
+				pointer: 0,
+				frontImg: "http://wx4.sinaimg.cn/large/0060lm7Tly1fxzmql2s5cj318g0tj4qp.jpg",
+				showlogos: false,
+				server: false,
+			}, computed: {
+
 			},
 			methods: {
-				calcDistance: function (x, y) {
-					xd = x - 51.512198;
-					yd = y - (-0.122199);
+				unzip: function (arr) {
+					let that = this;
+					let res = _.chain(arr).map(x => {
+						let y = _.split(x, ',');
+						return [y[0].substring(0, 12), y[0][12], y[0][13] == '1', y[0][14] == '1', y[0][15] == '1', y[0].substring(16, 99), y[1], y[2], y[3]];
+					}
+					).map(
+						x => {
+							return _.zipObject(['date', 'beds', 'flat', 'newCome', 'freehold', 'id', 'lat', 'lng', 'price'], x)
+						}
+					).value();
+					return res;
+
+				}, calcDistance: function (x, y, x0, y0) {
+					xd = x - x0;
+					yd = y - y0;
 					if (Math.abs(yd) > Math.abs(xd)) {
 						if (yd > 0) { dir = '东'; } else { dir = '西'; }
 						if (Math.abs(yd) < 2 * Math.abs(xd)) {
@@ -926,12 +950,12 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					fetch('http://222.242.223.77:50080/speedtest.png').then(function (data) {
 						if (that.server == '') { that.server = data.url.replace('speedtest.png', ''); }
 					}).catch(function (err) { console.log(err) });
-					fetch('http://210.12.56.58:33102/speedtest.png').then(function (data) {
+					/*fetch('http://210.12.56.58:33102/speedtest.png').then(function (data) {
 						if (that.server == '') { that.server = data.url.replace('speedtest.png', ''); }
 					}).catch(function (err) { console.log(err) });
 					fetch('http://aiyou1303.ddns.net:60080/speedtest.png').then(function (data) {
 						if (that.server == '') { that.server = data.url.replace('speedtest.png', ''); }
-					}).catch(function (err) { console.log(err) });
+					}).catch(function (err) { console.log(err) });*/
 				},
 				post: async function (url, obj) {
 					var that = this;
@@ -972,12 +996,14 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					if (typeof (this.r.ui) == "undefined") {
 						let qrRand = Cookies.get('qrRand');
 						if (typeof (qrRand) == "undefined") {
-							this.rand = Math.random() * 10000000000 + Math.random()
+							let k='1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+							this.rand = k[parseInt(Math.random()*62)]+k[parseInt(Math.random()*62)]+k[parseInt(Math.random()*62)]+k[parseInt(Math.random()*62)]+k[parseInt(Math.random()*62)]+k[parseInt(Math.random()*62)]
 							Cookies.set('qrRand', this.rand, { expires: 1 });
 						} else {
 							this.rand = qrRand;
 						}
-						await this.post('http://a.greencyw.com', { "k": "getOne", "qrRand": this.rand, "id": id, })
+						console.log(this.rand);
+						await this.post('http://a.greencyw.com/api', { "k": "detail", "qrRand": this.rand, "id": id, })
 						if (this.r.ui) {
 							this.panel = "detail";
 							clearInterval(this.getUserInfoAndItem);
@@ -1064,16 +1090,15 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					await this.getUserInfoAndItem();
 					if (typeof (this.r.ui) == "undefined") {
 						if (navigator.userAgent.indexOf('MicroMessenger') > 0) {//微信浏览器
-							window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?state=" + this.rand + "&appid=wx956c0edf4640037a&redirect_uri=http://a.greencyw.com&response_type=code&scope=snsapi_userinfo#wechat_redirect"
+							window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?state=" + this.rand+','+id + "&appid=wx956c0edf4640037a&redirect_uri=http://a.greencyw.com&response_type=code&scope=snsapi_userinfo#wechat_redirect"
 						} else {
 							this.panel = "login";
 							this.$nextTick(function () {
 								var qr = new QRious({
 									element: document.getElementById('qrcode'),
-									value: "http://a.greencyw.com/race?qrRand=" + this.rand
+									value: "http://a.greencyw.com/redir?state=" + this.rand+','+id//微信扫码登录（rand+propID)，好友推荐码(openid)，房屋二维码(openid+propid)
 								});
 							});
-
 							setInterval(this.getUserInfoAndItem, 1000);
 						}
 					}
@@ -1082,8 +1107,10 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					if (mode == 'map') {
 						this.panel = 'map';
 						let that = this;
-						await this.post("http://a.greencyw.com", { k: "getItems" });
-						this.zip = _.map(this.r.props, function (x) { return _.zipObject(that.r.ind, x) });
+						//await this.post("http://a.greencyw.com", { k: "getItems" });
+						await this.post("http://a.greencyw.com/api", { k: "basic", city: 'Manchester', from: 181222, to: 181224 });
+
+						this.zip = this.unzip(this.r.basic);
 						let n = 0;
 						while (
 							typeof Microsoft == "undefined" ||
@@ -1103,13 +1130,10 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 						this.$nextTick(function () {
 							var qrForFriends = new QRious({ element: document.getElementById("qrForFriends"), value: "http://a.greencyw.com/?ref=" + this.r.ui.openid });
 						})
-
-
-						//new QRCode(document.getElementById("qrForFriends"), "http://jindo.dev.naver.com/collie");
-						console.log('what');
 					}
 					else {
 						await that.post("http://a.greencyw.com", { k: "get20ForFrontPage" });
+						await this.post("http://a.greencyw.com/api", { k: "frontpage" });
 						await this.post("http://a.greencyw.com", { k: "getItems" });
 						this.zip = _.map(this.r.props, function (x) { return _.zipObject(that.r.ind, x) });
 					}

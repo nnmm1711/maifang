@@ -44,7 +44,7 @@ border-radius:5px;
 
 <body>
 	<div id="app">
-		<nav v-if='server' id="顶部菜单" class="navbar navbar-expand-lg navbar-light sticky-top p-1" style="background-color: white;">
+		<nav id="顶部菜单" class="navbar navbar-expand-lg navbar-light sticky-top p-1" style="background-color: white;">
 			<div class="container">
 				<a class="navbar-brand d-flex align-items-center" href="?mode=front" @click="panel='front'">
 					<img src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1fydc8qb8r0j300q00qwea.jpg" alt="英国买房 英国购房 英国房产投资 英国房地产" /><strong
@@ -81,24 +81,11 @@ http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg
 http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 		-->
-		<div v-if='panel=="front"' id="首页背景" class="d-flex  flex-column justify-content-between" style="min-height:85vh; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
+		<div v-if='panel=="front"' id="首页背景" class="d-flex flex-column justify-content-between" style="min-height:80vh; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
 			<div class="d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.4)">
 				<p class="text-light text-center" style="font-size: 10vmin;">英国房产大全</p>
-
-				<!--marquee v-if="panel=='front'" onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="left"
-				 scrollamount="5" scrolldelay="0" loop="-1">
-
-					<template v-for="i in _.chain(zip).countBy('date').toPairs().orderBy((x)=>{return x[0]},'desc').value()">
-						<button style="font-size:3vmin;background-color: rgba(255, 255, 255, 0.2)" class="btn btn-outline-light m-1 py-1 px-2">
-							{{i[0].substring(0,2)}}月{{i[0].substring(2,4)}}日伦敦新增房源{{i[1]}}项</button>
-					</template>
-				</marquee-->
-
-
 			</div>
 			<div class="mt-auto" style="background-color: rgba(0, 0, 0, 0.6);">
-
-
 				<div class="mx-md-5 my-2 text-center">
 					<div class="row justify-content-center">
 						<div class="col-md-3 m-1 p-2 rounded border-light border" style="background-color: rgba(255, 255, 255, 0.3);">
@@ -137,7 +124,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="?mode=map">
 						<div class="card m-2" style="height:100%; border-width:0;">
-							<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydfd96qn5j30za0nmq5d.jpg"
+							<img class="rounded card-img-top animated slideInUp wow " style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydfd96qn5j30za0nmq5d.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1 d-flex">
 								<h3 class="card-title"><span class="borderTxt2">每分钟更新全英国房源</span></h3>
@@ -151,7 +138,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="?mode=map">
 						<div class="card m-2" style="height:100%; border-width:0;">
-							<img class="rounded card-img-top animated zoomIn wow " style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1fyi1xn1qhij30cl09375o.jpg"
+							<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1fyi1xn1qhij30cl09375o.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
 								<h3 class="card-title"><span class="borderTxt2">全景地图选房</span></h3>
@@ -166,7 +153,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<div class="card m-2" style="height:100%; border-width:0;">
-						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydeu1ji82j30p00go40b.jpg"
+						<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydeu1ji82j30p00go40b.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
 							<h3 class="card-title"><span class="borderTxt2">精品豪宅资讯</span></h3>
@@ -180,7 +167,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<div class="card m-2" style="height:100%; border-width:0;">
 						<a href="#">
-							<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydefhdibvj30d607eq47.jpg"
+							<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydefhdibvj30d607eq47.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
 								<h3 class="card-title"><span class="borderTxt2">高端学区房</span></h3>
@@ -195,7 +182,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="javascript:void(0);" @click="showlogos=true">
 						<div class="card m-2" style="height:100%; border-width:0;">
-							<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/large/0060lm7Tly1fy79xuw0loj30ap06e0t9.jpg"
+							<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/large/0060lm7Tly1fy79xuw0loj30ap06e0t9.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
 								<h3 class="card-title"><span class="borderTxt2">英国地产界精英团队</span></h3>
@@ -214,7 +201,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<div class="card m-2" style="height:100%; border-width:0;">
-						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydetdjr0aj318g0tn76t.jpg"
+						<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydetdjr0aj318g0tn76t.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
 							<h3 class="card-title"><span class="borderTxt2">专业房产投资顾问</span></h3>
@@ -227,7 +214,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<div class="card m-2" style="height:100%; border-width:0;">
-						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/large/0060lm7Tly1fydjtemg6ij30sg0gomzw.jpg"
+						<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/large/0060lm7Tly1fydjtemg6ij30sg0gomzw.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
 							<h3 class="card-title"><span class="borderTxt2">全流程服务</span></h3>
@@ -240,7 +227,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<div class="card m-2" style="height:100%; border-width:0;">
-						<img class="rounded card-img-top animated zoomIn wow" style="width:100%; height:12rem;" src="https://tse1.mm.bing.net/th?id=OIP.r2-Mrw0b4sR25PXo9sNTJwHaFV&pid=Api&w=1012&h=729&rs=1&p=0"
+						<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="https://tse1.mm.bing.net/th?id=OIP.r2-Mrw0b4sR25PXo9sNTJwHaFV&pid=Api&w=1012&h=729&rs=1&p=0"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
 							<h3 class="card-title"><span class="borderTxt2">隐私保护</span></h3>
@@ -1109,7 +1096,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					let map = new Microsoft.Maps.Map(document.getElementById("myMap"), {
 						center: new Microsoft.Maps.Location(51.511925, -0.058628),
 						mapTypeId: Microsoft.Maps.MapTypeId.road,
-						zoom: 14
+						zoom: 12
 					});
 
 					var infobox = new Microsoft.Maps.Infobox(map.center, {
@@ -1187,8 +1174,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 						this.panel = 'map';
 						let that = this;
 						//await this.post("http://a.greencyw.com", { k: "getItems" });
-						await this.post("http://a.greencyw.com/api", { k: "basic", city: 'Manchester', from: 181222, to: 181224 });
-
+						await this.post("http://a.greencyw.com/api", { k: "basic", city: 'London', from: 181222, to: 181226 });
 						this.zip = this.unzip(this.r.basic);
 						let n = 0;
 						while (

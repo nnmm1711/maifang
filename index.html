@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<!--日期筛选价格筛选 详情页图片转本地 清理真实id-->
+<!--      -->
 <html>
 
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="msvalidate.01" content="2B6B31C1DDB6F3F7C66322DCD32A2848" />
 	<title>英国房产大全</title>
-	<!--link rel="stylesheet/less" type="text/css" href="styles.less"-->
 	<link href="https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="https://cdn.staticfile.org/animate.css/3.7.0/animate.min.css" rel="stylesheet" />
-	<link rel="icon" href="http://pc1.gtimg.com/finance/softweb/fav/favicon_32x32.ico" type="image/x-icon" />
+	<link rel="icon" href="https://assets.publishing.service.gov.uk/static/favicon-8d811b8c3badbc0b0e2f6e25d3660a96cc0cca7993e6f32e98785f205fc40907.ico"
+	 type="image/x-icon" />
 	<link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 	<style>
 		button:hover{
@@ -45,10 +44,11 @@ border-radius:5px;
 
 <body>
 	<div id="app">
-		<nav v-if='server' id="导航条" class="navbar navbar-expand-lg navbar-light sticky-top p-1" style="background-color: white;">
+		<nav v-if='server' id="顶部菜单" class="navbar navbar-expand-lg navbar-light sticky-top p-1" style="background-color: white;">
 			<div class="container">
-				<a class="navbar-brand d-flex align-items-center" href="?mode=front" @click="panel='front'"><img src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1fydc8qb8r0j300q00qwea.jpg"
-					 alt="英国买房 英国购房 英国房产投资 英国房地产" /><strong style="font-size: 22px">英国房产大全</strong></a>
+				<a class="navbar-brand d-flex align-items-center" href="?mode=front" @click="panel='front'">
+					<img src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1fydc8qb8r0j300q00qwea.jpg" alt="英国买房 英国购房 英国房产投资 英国房地产" /><strong
+					 style="font-size: 22px">英国房产大全</strong></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -81,9 +81,10 @@ http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg
 http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 		-->
-		<div v-if='panel=="front"' id="标题栏" class="d-flex  flex-column-reverse " style="height:50vmin; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
-			<div style="background-color: rgba(0, 0, 0, 0.4)">
-				<p class="text-light text-center" style="font-size: 7vmin;">英国房产大全</p>
+		<div v-if='panel=="front"' id="首页背景" class="d-flex  flex-column justify-content-between" style="min-height:85vh; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
+			<div class="d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.4)">
+				<p class="text-light text-center" style="font-size: 10vmin;">英国房产大全</p>
+
 				<!--marquee v-if="panel=='front'" onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="left"
 				 scrollamount="5" scrolldelay="0" loop="-1">
 
@@ -94,6 +95,37 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</marquee-->
 
 
+			</div>
+			<div class="mt-auto" style="background-color: rgba(0, 0, 0, 0.6);">
+
+
+				<div class="mx-md-5 my-2 text-center">
+					<div class="row justify-content-center">
+						<div class="col-md-3 m-1 p-2 rounded border-light border" style="background-color: rgba(255, 255, 255, 0.3);">
+							<h4 class="text-light">
+								<i class="fa fa-group"></i>&nbsp;伦敦豪宅置业私人顾问
+							</h4>
+							<p class="text-light">剑桥海外投资集团 资深顾问, 投资专家, 私人定制, 私密传承</p>
+							</p>
+						</div>
+						<div class="col-md-3 m-1 p-2 rounded border-light border" style="background-color: rgba(255, 255, 255, 0.3);">
+							<a v-if='r.count' href="/?mode=grid">
+								<h4 class="text-light">
+									<i class="fa fa-line-chart"></i>&nbsp;实时大数据:近7日新增房源
+								</h4>
+								<p class="text-light">伦敦{{r.count.London}}套 伯明翰{{r.count.Birmingham}}套
+									曼彻斯特{{r.count.Manchester}}套 (每分钟动态更新)</p>
+							</a>
+						</div>
+						<div class="col-md-3 m-1 p-2 rounded border-light border" style="background-color: rgba(255, 255, 255, 0.3);">
+							<h4 class="text-light">
+								<i class="fa fa-graduation-cap"></i>&nbsp;学区房投资
+							</h4>
+							<p class="text-light">超详尽的学区房资料
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -222,7 +254,16 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 			</div>
 		</div>
-
+		<div id="数字与筛选" v-if="false" class="container" style="min-height:50vh">
+			<div class="row">
+				<div class="col">
+					数字
+				</div>
+				<div class="col">
+					筛选
+				</div>
+			</div>
+		</div>
 		<template id="新登场" v-if="panel=='front'&&server&&r.coverData" v-for="c in coverCities">
 			<div class=" mb-5">
 				<div class="alert alert-secondary w-100 text-muted text-center">
@@ -244,6 +285,33 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 			</div>
 		</template>
+		<div id="GridView" v-if="panel=='grid'">
+			<div class="d-flex flex-wrap justify-content-center" v-if="r.coverData">
+				<template v-for="chunk,page in _.chunk(r.coverData.London,10)">
+					<template v-for="v in unzip(chunk)" v-if="page<gridPage">
+						<a :href="'?id='+v.id" target="_blank">
+							<div class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
+								<p class="m-1">
+									<span class="borderTxt">{{calcDistance(v.lat,v.lng,51.512198,-0.122199)}}{{v.beds}}居
+										&pound;{{ (v.price*1000).toLocaleString()}}<br>
+										发布于英国时间{{v.date.substring(2,4)}}月{{v.date.substring(4,6)}}日{{v.date.substring(6,8)}}:{{v.date.substring(8,10)}}
+									</span>
+								</p>
+							</div>
+						</a>
+					</template>
+				</template>
+				<div class="d-flex w-100" style="min-height:30vh">
+					<div class="m-auto animated rubberBand delay-1s">
+						<button class="btn btn-success btn-lg p-3 m-3">筛选</button>
+						<button @click="gridPage=gridPage+1" class="btn btn-primary btn-lg p-3 m-3">
+							加载更多
+						</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div id="地图" v-if="panel=='map'">
 			<nav class="nav fixed-bottom m-5">
@@ -392,7 +460,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 		<div id="二维码登录页" style="height:80vh" class="d-flex alert alert-secondary" v-if="panel=='login'">
 			<div class="m-auto">
 				<center>
-					<h4>请用微信扫二维码登录</h4>
+					<h4>请用微信扫二维码</h4>
 					<canvas style="height:10rem" id='qrcode'></canvas>
 				</center>
 
@@ -425,8 +493,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					<img style="width:60px" :src="r.ui.headimgurl" class="mr-3" />
 					<div class="media-body">
 						<h5 class="mt-0">您好 {{r.ui.nickname}}</h5>
-						<a href="?mode=profile">个人资料</a>
-
+						<a href="?mode=profile">个人资料</a> <a v-if="r.oriUrl" :href="r.oriUrl" target="_blank">原文链接</a>
 						<button class="btn btn-link" v-if="r.ui" onclick="Cookies.remove('qrRand');location.reload();">退出登录</button>
 					</div>
 				</div>
@@ -442,7 +509,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					土地权:{{ r.info.tenure }}&nbsp;&nbsp;
 					更新于:{{ r.info.updated.substring(0, 10)}}&nbsp;&nbsp;
 					类型:{{r.info.type == "new" ? "新发售" : "降价促销" }}&nbsp;&nbsp;
-					本站房源编号:{{ r.info.id }}
+
 				</p>
 			</div>
 			<div v-if="r.info.kf_cn" class="alert alert-warning">
@@ -455,7 +522,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 			<p>{{ r.info.desc_cn }}</p>
 
 			<div class="alert alert-success">
-				加客服微信获取此房产建筑平面图, 历史交易信息，周边交易价格，周边配套学校等详细资料。随时预约现场看房，或互动视频直播看房。随时接待英国商务考察团。
+				加客服微信获取此房产建筑平面图, 历史交易信息，周边交易价格，周边配套学校等详细资料。
 			</div>
 
 			<hr />
@@ -500,19 +567,20 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 			</div>
 		</div>
-		<div id="footer" class="alert alert-secondary text-muted m-0 p-6 d-flex flex-wrap justify-content-center">
-			<div class="m-3">
-				<p>
-					北京: <br />
-					北京市西城区<br />广莲路1号3层
-				</p>
-			</div>
+		<div id="footer" class="alert alert-secondary text-muted m-0 p-6 d-flex flex-wrap justify-content-center" style="font-size: 0.8rem">
+
 			<div class="m-3">
 				<p>
 					伦敦: <br />3-34 Chester House <br />
 					Kennington Park <br />
 					1-3 Brixton Road <br />
 					London SW9 6DE, UK
+				</p>
+			</div>
+			<div class="m-3">
+				<p>
+					北京: <br />
+					北京市西城区<br />广莲路1号3层
 				</p>
 			</div>
 			<div class="m-3">
@@ -895,6 +963,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					{ name: "Birmingham", lat: 52.479511, lng: -1.901597, frontPageCount: 10, cn: '伯明翰' },
 					{ name: "Manchester", lat: 53.4792, lng: -2.24807, frontPageCount: 10, cn: '曼彻斯特' },
 				],
+				gridPage: 1,
 				zip: [],
 				rand: 0,
 				filter: {},
@@ -927,20 +996,25 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				}, calcDistance: function (x, y, x0, y0) {
 					xd = x - x0;
 					yd = y - y0;
-					if (Math.abs(yd) > Math.abs(xd)) {
-						if (yd > 0) { dir = '东'; } else { dir = '西'; }
-						if (Math.abs(yd) < 2 * Math.abs(xd)) {
-							if (xd > 0) { dev = '偏北' } else { dev = '偏南' }
-						} else { dev = '' }
+					if (xd > 0) {
+						if (xd > (Math.abs(yd) * 2)) {
+							dir = '北';
+						} else {
+							if (yd > 0) { dir = '东北'; } else { dir = '西北'; }
+						}
 					} else {
-						if (xd > 0) { dir = '北'; } else { dir = '南'; }
-						if (Math.abs(xd) < 2 * Math.abs(yd)) {
-							if (yd > 0) { dev = '偏东' } else { dev = '偏西' }
-						} else { dev = '' }
+						if (xd < (-Math.abs(yd) * 2)) {
+							dir = '南';
+						} else {
+							if (yd > 0) { dir = '东南'; } else { dir = '西南'; }
+						}
+					}
+					if (Math.abs(yd) > (2 * Math.abs(xd))) {
+						if (yd > 0) { dir = '东' } else { dir = '西' }
 					}
 					distance = Math.sqrt(Math.pow(xd, 2) + Math.pow(yd, 2));
 					circle = Math.floor(Math.sqrt(distance) / 0.08);
-					return dir + circle + '环' + dev
+					return dir + circle + '环'
 				},
 				dateFormat: function (input) {
 					return dayjs(input).format('YYYY年MM月DD日HH:mm:ss');
@@ -977,10 +1051,12 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				setFilter(k, v) {
 					Vue.set(v1.filter, k, v);
 					this.resetMap()
-				}, deleteFilter(k) {
+				},
+				deleteFilter(k) {
 					Vue.delete(v1.filter, k)
 					this.resetMap()
-				}, getInfoByCookie: async function (data) {
+				},
+				getInfoByCookie: async function (data) {
 					let qrRand = Cookies.get('qrRand');
 					if (typeof (qrRand) == "undefined") {
 						this.rand = Math.random() * 10000000000 + Math.random()
@@ -990,14 +1066,15 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					}
 					data.qrRand = this.rand;
 					await this.post('http://a.greencyw.com', data);
-				}, getUserInfoAndItem: async function () {
+				},
+				getUserInfoAndItem: async function () {
 					let params = new URLSearchParams(window.location.search);
 					let id = params.get("id");
 					if (typeof (this.r.ui) == "undefined") {
 						let qrRand = Cookies.get('qrRand');
 						if (typeof (qrRand) == "undefined") {
-							let k='1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-							this.rand = k[parseInt(Math.random()*62)]+k[parseInt(Math.random()*62)]+k[parseInt(Math.random()*62)]+k[parseInt(Math.random()*62)]+k[parseInt(Math.random()*62)]+k[parseInt(Math.random()*62)]
+							let k = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+							this.rand = k[parseInt(Math.random() * 62)] + k[parseInt(Math.random() * 62)] + k[parseInt(Math.random() * 62)] + k[parseInt(Math.random() * 62)] + k[parseInt(Math.random() * 62)] + k[parseInt(Math.random() * 62)]
 							Cookies.set('qrRand', this.rand, { expires: 1 });
 						} else {
 							this.rand = qrRand;
@@ -1026,7 +1103,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 							map.entities.push(pushpin);
 						}
 					}
-				}, resetMap() {
+				},
+				resetMap() {
 					let that = this;
 					let map = new Microsoft.Maps.Map(document.getElementById("myMap"), {
 						center: new Microsoft.Maps.Location(51.511925, -0.058628),
@@ -1085,26 +1163,27 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				var that = this;
 				let params = new URLSearchParams(window.location.search);
 				let id = params.get("id");
-				if (id) {
+				if (id) {//房源详情
 					this.panel = "detail";
 					await this.getUserInfoAndItem();
 					if (typeof (this.r.ui) == "undefined") {
 						if (navigator.userAgent.indexOf('MicroMessenger') > 0) {//微信浏览器
-							window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?state=" + this.rand+','+id + "&appid=wx956c0edf4640037a&redirect_uri=http://a.greencyw.com&response_type=code&scope=snsapi_userinfo#wechat_redirect"
+							window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?state=" + this.rand + ',' + id + "&appid=wx956c0edf4640037a&redirect_uri=http://a.greencyw.com&response_type=code&scope=snsapi_userinfo#wechat_redirect"
 						} else {
 							this.panel = "login";
 							this.$nextTick(function () {
 								var qr = new QRious({
 									element: document.getElementById('qrcode'),
-									value: "http://a.greencyw.com/redir?state=" + this.rand+','+id//微信扫码登录（rand+propID)，好友推荐码(openid)，房屋二维码(openid+propid)
+									value: "http://a.greencyw.com/redir?state=" + this.rand + ',' + id//微信扫码登录（rand+propID)，好友推荐码(openid)，房屋二维码(openid+propid)
 								});
 							});
 							setInterval(this.getUserInfoAndItem, 1000);
 						}
 					}
-				} else {
+				}
+				else {//
 					let mode = params.get("mode");
-					if (mode == 'map') {
+					if (mode == 'map') {//地图
 						this.panel = 'map';
 						let that = this;
 						//await this.post("http://a.greencyw.com", { k: "getItems" });
@@ -1124,18 +1203,23 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 						}
 						console.log(n);
 						this.resetMap();
-					} else if (mode == 'profile') {
+					}
+					else if (mode == 'profile') {//个人资料
 						await this.getInfoByCookie({ k: "profile" })
 						this.panel = 'profile';
 						this.$nextTick(function () {
 							var qrForFriends = new QRious({ element: document.getElementById("qrForFriends"), value: "http://a.greencyw.com/?ref=" + this.r.ui.openid });
 						})
 					}
-					else {
-						await that.post("http://a.greencyw.com", { k: "get20ForFrontPage" });
+					else if (mode == 'grid') {
 						await this.post("http://a.greencyw.com/api", { k: "frontpage" });
-						await this.post("http://a.greencyw.com", { k: "getItems" });
-						this.zip = _.map(this.r.props, function (x) { return _.zipObject(that.r.ind, x) });
+						this.panel = 'grid';
+					}
+					else {//首页
+						//await that.post("http://a.greencyw.com", { k: "get20ForFrontPage" });
+						await this.post("http://a.greencyw.com/api", { k: "frontpage" });
+						//await this.post("http://a.greencyw.com", { k: "getItems" });
+						//this.zip = _.map(this.r.props, function (x) { return _.zipObject(that.r.ind, x) });
 					}
 				}
 			}

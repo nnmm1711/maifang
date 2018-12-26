@@ -41,8 +41,8 @@ border-radius:5px;
 	  }	 	  
 	</style>
 </head>
-
 <body>
+	<h1 class="d-none">英国买房 英国购房 英国房产投资 英国房地产投资</h1>
 	<div id="app">
 		<nav id="顶部菜单" class="navbar navbar-expand-lg navbar-light sticky-top p-1" style="background-color: white;">
 			<div class="container">
@@ -89,11 +89,13 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<div class="mx-md-5 my-2 text-center">
 					<div class="row justify-content-center">
 						<div class="col-md-3 m-1 p-2 rounded border-light border" style="background-color: rgba(255, 255, 255, 0.3);">
-							<h4 class="text-light">
-								<i class="fa fa-group"></i>&nbsp;伦敦豪宅置业私人顾问
-							</h4>
-							<p class="text-light">剑桥海外投资集团 资深顾问, 投资专家, 私人定制, 私密传承</p>
-							</p>
+							<a href="#about">
+								<h4 class="text-light">
+									<i class="fa fa-group"></i>&nbsp;伦敦豪宅置业私人顾问
+								</h4>
+								<p class="text-light">剑桥海外投资集团 资深顾问, 投资专家, 私人定制, 私密传承</p>
+								</p>
+							</a>
 						</div>
 						<div class="col-md-3 m-1 p-2 rounded border-light border" style="background-color: rgba(255, 255, 255, 0.3);">
 							<a v-if='r.count' href="/?mode=grid">
@@ -243,12 +245,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 		</div>
 		<div id="数字与筛选" v-if="false" class="container" style="min-height:50vh">
 			<div class="row">
-				<div class="col">
-					数字
-				</div>
-				<div class="col">
-					筛选
-				</div>
+
+
 			</div>
 		</div>
 		<template id="新登场" v-if="panel=='front'&&server&&r.coverData" v-for="c in coverCities">
@@ -521,7 +519,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 			<div id='MapForDetail' class="mx-auto" style="height: 50vmin; "></div>
 		</div>
 
-		<div id="关于" class="py-5  my-5 d-flex flex-wrap justify-content-center" v-if="panel=='front'">
+		<div id="about" class="py-5  my-5 d-flex flex-wrap justify-content-center" v-if="panel=='front'" name="about">
 			<div>
 				<table>
 					<tr>
@@ -1127,8 +1125,9 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 									"卧室," + (lo.flat ? "公寓, " : "别墅, ") + (lo.freehold ? "永久产权" : "非永久产权") + "<br>更新于" + lo.date +
 									'<br><a href="?id=' +
 									lo.id +
-									'"target="_blank"><div class="d-flex" style="height:300px;width:300px;background-size:cover;background-image:url(' + that.server + '/allset/'
-									+ (lo.id / 89) +
+									'"target="_blank"><div class="d-flex" style="height:300px;width:300px;background-size:cover;background-image:url(' + 
+									that.server + 'db/'+lo.date.substring(0,6)+'/'
+									+ lo.id  +
 									'/00.jpg)"><h2 class="m-auto borderTxt">请点击图片</h2></div></a>'
 									+ "</div>",
 								visible: true,

@@ -1107,8 +1107,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 						pushpin = new Microsoft.Maps.Pushpin(loc, {
 							color: lo.newCome ? "red" : "blue",
 							text: lo.beds.toString() + (lo.beds > 4 ? '+' : ''),
-							subTitle: lo.date,
-							title: "£" + lo.price.toLocaleString()
+							subTitle: lo.date.substring(2,6),
+							title: "£" + lo.price.toLocaleString()+',000'
 						});
 						map.entities.push(pushpin);
 
@@ -1121,8 +1121,9 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 								location: args.target.getLocation(),
 								description:
 									'<div >售价£' +
-									lo.price.toLocaleString() + '<br>' + lo.beds + (lo.beds > 4 ? '+' : '') +
-									"卧室," + (lo.flat ? "公寓, " : "别墅, ") + (lo.freehold ? "永久产权" : "非永久产权") + "<br>更新于" + lo.date +
+									lo.price.toLocaleString() + ',000<br>' + lo.beds + (lo.beds > 4 ? '+' : '') +
+									"卧室," + (lo.flat ? "公寓, " : "别墅, ") + (lo.freehold ? "永久产权" : "非永久产权") + "<br>更新于" + 
+									lo.date.substring(0,2) +'年'+lo.date.substring(2,4)+"月"+lo.date.substring(4,6)+'日'+
 									'<br><a href="?id=' +
 									lo.id +
 									'"target="_blank"><div class="d-flex" style="height:300px;width:300px;background-size:cover;background-image:url(' + 

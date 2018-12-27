@@ -45,7 +45,6 @@ border-radius:5px;
 <body>
 	<h1 class="d-none">英国买房 英国购房 英国房产投资 英国房地产投资</h1>
 	<div id="app">
-
 		<nav id="顶部菜单" class="navbar navbar-expand-lg navbar-light fixed-top sticky-top p-1 " style="background-color: white;">
 			<div class="container">
 				<a class="navbar-brand d-flex align-items-center" href="?mode=front" @click="panel='front'">
@@ -85,12 +84,12 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 		-->
 		<div v-if='panel=="front"' id="首页背景" class="d-flex flex-column justify-content-between" style="min-height:80vh; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
 			<div class="animated slideInDown delay-1s" style="background-color: rgba(0, 0, 0, 0.4)">
-				<p class="text-light text-center animated slideInDown delay-2s" style="font-size: 10vmin;">英国房产大全</p>
+				<p class="text-light text-center animated slideInDown delay-1s" style="font-size: 15vmin;">英国房产大全</p>
 			</div>
 			<div class="mt-auto animated slideInUp delay-1s" style="background-color: rgba(0, 0, 0, 0.6);">
-				<div class="mx-md-5 my-2 text-center">
+				<div class="mx-md-5 my-5 text-center">
 					<div class="row justify-content-center">
-						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInUp delay-2s" style="background-color: rgba(255, 255, 255, 0.3);">
+						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInLeft delay-1s" style="background-color: rgba(255, 255, 255, 0.3);">
 							<a href="#about">
 								<h4 class="text-light">
 									伦敦置业顾问
@@ -99,15 +98,15 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 								</p>
 							</a>
 						</div>
-						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInUp delay-2s" style="background-color: rgba(255, 255, 255, 0.3);">
-							<a href="#detailBreak">
+						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInUp delay-1s" style="background-color: rgba(255, 255, 255, 0.3);">
+							<a href="#新登场">
 								<h4 class="text-light">
 									本周新增房源
 								</h4>
 								<p v-if="r.basic" class="text-light">{{coverCities[viewingCity].cn}}:{{r.basic.length}}套 </p>
 							</a>
 						</div>
-						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInUp delay-2s" style="background-color: rgba(255, 255, 255, 0.3);">
+						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInRight delay-1s" style="background-color: rgba(255, 255, 255, 0.3);">
 							<h4 class="text-light">
 								学区房投资
 							</h4>
@@ -184,14 +183,14 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="javascript:void(0);" @click="showlogos=true">
-						<div class="card m-2" style="height:100%; border-width:0;">
-							<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/large/0060lm7Tly1fy79xuw0loj30ap06e0t9.jpg"
+						<div class="card m-2 wow pulse" style="height:100%; border-width:0;">
+							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/large/0060lm7Tly1fy79xuw0loj30ap06e0t9.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
 								<h3 class="card-title"><span class="borderTxt2">英国地产界精英团队</span></h3>
 							</div>
 							<div class="card-body text-muted p-3">
-								<p class="card-text">英国房地产协会中国区独家合作伙伴, 精选遍布英国全境的顶级地产律师事务所共同提供专业服务(点击查看联盟成员清单)
+								<p class="card-text">英国房地产协会中国区独家合作伙伴, 精选遍布英国全境的顶级地产律师事务所共同提供专业服务(点击查看独家合作伙伴清单)
 								</p>
 							</div>
 						</div>
@@ -199,12 +198,12 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 				<div id="logos" name="logos" v-if="showlogos">
 					<template v-for="i in logos">
-						<img class="img-fluid m-2" style="width:60px;height:25px;" :src="'http://lx.b2uk.com:50080/logos/'+i" />
+						<img class="img-fluid m-2" style="width:60px;height:25px;" :src="server+'pic/logos/'+i" />
 					</template>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-2" style="height:100%; border-width:0;">
-						<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydetdjr0aj318g0tn76t.jpg"
+					<div class="card m-2 wow pulse" style="height:100%; border-width:0;">
+						<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydetdjr0aj318g0tn76t.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
 							<h3 class="card-title"><span class="borderTxt2">专业房产投资顾问</span></h3>
@@ -216,8 +215,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					</div>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-2" style="height:100%; border-width:0;">
-						<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/large/0060lm7Tly1fydjtemg6ij30sg0gomzw.jpg"
+					<div class="card m-2 wow pulse" style="height:100%; border-width:0;">
+						<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/large/0060lm7Tly1fydjtemg6ij30sg0gomzw.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
 							<h3 class="card-title"><span class="borderTxt2">全流程服务</span></h3>
@@ -229,8 +228,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					</div>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-2" style="height:100%; border-width:0;">
-						<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="https://tse1.mm.bing.net/th?id=OIP.r2-Mrw0b4sR25PXo9sNTJwHaFV&pid=Api&w=1012&h=729&rs=1&p=0"
+					<div class="card m-2 wow pulse" style="height:100%; border-width:0;">
+						<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1fylg96fmt6j30s40k9my7.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
 							<h3 class="card-title"><span class="borderTxt2">隐私保护</span></h3>
@@ -244,85 +243,62 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 			</div>
 		</div>
-		<hr style="margin:4rem" id='detailBreak' v-if="panel=='front'">
-		<div id="新登场" v-if="panel=='front'&&server&&zip" class="mt-5">
-			<div class="alert alert-secondary w-100 text-muted text-center">
+	
+		<div id="新登场" v-if="['front','grid'].includes(panel)&&server&&zip" style="margin:10vmin 0 0 0">
+			<div class="alert alert-secondary w-100 text-muted text-center py-5" v-if="panel=='front'">
 				<div class="container " v-if="panel=='front'">
-					<div class="row m-3 align-items-center">
-						<div class="col-md-3">
-							<div class="input-group input-group-lg">
-								<select class="form-control" v-model="viewingCity" @change="fetchCityBasic(viewingCity)">
-									<option v-for="c in _.keys(coverCities)" :value="c">{{coverCities[c].cn}}</option>
-								</select>
-								<div class="input-group-append">
-									<button class="btn btn-secondary" data-toggle="modal" data-target="#mapModal"><i class="fa fa-search"></i>&nbsp;筛选</button>
-								</div>
-							</div>
-
-
+					<div class="row align-items-center">
+						
+						<div class="col flex flex-wrap">
+							<template v-for="c in _.toPairs(coverCities)">								
+									<button class="btn btn-info m-1" @click="fetchCityBasic(c[0])">{{c[1].cn}}</button>
+							</template>
+							
 						</div>
-						<div class="col">
-							新登场房源 (每分钟动态更新)
+						<div class="col-md-3">
+								<button class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#mapModal"><i class="fa fa-search"></i>&nbsp;地图</button>
 						</div>
 					</div>
-
-
-
+					
 				</div>
-
 			</div>
 			<div class="mx-md-4 d-flex flex-wrap justify-content-center">
-				<template v-for="v in _.take(zip,20)">
+				<template v-for="v in _.take(zip,gridPage)">
 					<a :href="'?id='+v.id" target="_blank">
-						<div class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
+						<div class=" m-1 rounded wow d-flex flex-wrap align-items-end flipInX" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
 							<p class="m-1">
-								<span class="borderTxt">{{calcDistance(v.lat,v.lng,coverCities[viewingCity].lat,coverCities[viewingCity].lng)}}{{v.beds}}居
-									&pound;{{ (v.price*1000).toLocaleString()}}<br>
-									发布于英国时间{{v.date.substring(2,4)}}月{{v.date.substring(4,6)}}日{{v.date.substring(6,8)}}:{{v.date.substring(8,10)}}
+								<span class="borderTxt text">{{coverCities[viewingCity].cn}} {{calcDistance(v.lat,v.lng,coverCities[viewingCity].lat,coverCities[viewingCity].lng)}}{{v.beds}}居
+									&pound;{{ (v.price).toLocaleString()}}<br>
+									发布于北京时间{{dateFormat(v.date)}}
 								</span>
 							</p>
 						</div>
 					</a>
 				</template>
+			</div>
+			<div class='m-5' v-if="panel=='front'">
+				<button class="btn btn-outline-info btn-block p-3" @click="panel='grid'" onclick="window.scroll(0,0)">查看{{coverCities[viewingCity].cn}}{{zip.length}}套房源信息</button>
 			</div>
 		</div>
 
 		<div id="GridView" v-if="panel=='grid'">
 			<div class="d-flex flex-wrap justify-content-center">
-				<div class="alert alert-secondary w-100 text-center">
-					<h1>{{coverCities[viewingCity].cn}}</h1>
-				</div>
-				<template v-for="v,index in zip">
-					<a :href="'?id='+v.id" target="_blank" v-if="index<gridPage">
-						<div class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
-							<p class="m-1">
-								<span class="borderTxt">{{calcDistance(v.lat,v.lng,51.512198,-0.122199)}}{{v.beds}}居
-									&pound;{{(v.price*1000).toLocaleString()}}<br>
-									发布于英国时间{{v.date.substring(2,4)}}月{{v.date.substring(4,6)}}日{{v.date.substring(6,8)}}:{{v.date.substring(8,10)}}
-								</span>
-							</p>
-						</div>
-					</a>
-				</template>
 				<div class="d-flex w-100" style="min-height:30vh">
 					<div class="m-auto animated rubberBand delay-1s">
-						<button class="btn btn-success btn-lg p-3 m-3" data-toggle="modal" data-target="#mapModal">筛选</button>
+						<button class="btn btn-success btn-lg p-3 m-3" data-toggle="modal" data-target="#mapModal"><i class="fa fa-search"></i>&nbsp;地图</button>
 						<button @click="gridPage=gridPage+10" class="btn btn-primary btn-lg p-3 m-3" v-show="zip.length>gridPage">
 							加载更多(还有{{zip.length-gridPage}}项)
 						</button>
 						<button class="btn btn-secondary btn-lg p-3 m-3 disabled" v-show="zip.length<=gridPage">
 							没有更多了
 						</button>
-
-
 					</div>
 				</div>
 			</div>
 		</div>
-
 		<div id="地图" v-show="panel=='map'">
 			<nav class="nav fixed-bottom m-5">
-				<button class="btn btn-warning py-0 px-2" style="z-index:-1;font-size: 2rem;" data-toggle="modal" data-target="#mapModal">
+				<button class="btn btn-info py-0 px-2" style="z-index:-1;font-size: 2rem;" data-toggle="modal" data-target="#mapModal">
 					使用说明
 				</button>
 			</nav>
@@ -336,11 +312,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					<h4>请用微信扫二维码</h4>
 					<canvas style="height:10rem" id='qrcode'></canvas>
 				</center>
-
 			</div>
-
 		</div>
-
 		<div id='profile' v-if="panel=='profile'" style="height:80vmin;">
 			个人资料{{this.rand}}
 			<canvas id='qrForFriends'></canvas>
@@ -358,7 +331,6 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<a href="?mode=profile">profile</a>
 				<button class="btn btn-link" v-if="r.ui" onclick="Cookies.remove('qrRand');location.reload();">退出登录</button>
 			</div>
-
 		</div>
 		<div id="房源详情" class="container" v-if="panel=='detail'&&r.info">
 			<div id="用户资料" class="alert alert-info " v-if="r.ui">
@@ -371,9 +343,9 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					</div>
 				</div>
 			</div>
-			<div v-if="r.info.pics" class="mx-auto">
-				<img :src="r.info.pics[0]" class="mx-auto img-fluid" />
-			</div>
+			<center>
+				<img :src="r.info.pics[0]" class="img-fluid" />
+			</center>
 			<div class="alert alert-info" v-if="r.info.price">
 				<p>
 					价格:&pound;{{ r.info.price.toLocaleString() }}&nbsp;&nbsp;
@@ -580,9 +552,9 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					</div>
 					<div class="modal-footer">
 						<button class="btn btn-info btn-block d-none" @click="panel='grid'" onclick="window.scroll(0,0)">防止下面两个按钮错位</button>
-						<button class="btn btn-info btn-block" @click="panel='grid'" onclick="setTimeout('window.scroll(0,0)',1000);"
+						<button class="btn btn-info btn-block" @click="panel='grid'" onclick="setTimeout('window.scroll(0,0)',500);"
 						 data-dismiss="modal">列表({{zip.length}}项)</button>
-						<button class="btn btn-primary btn-block" onclick="setTimeout('window.scroll(0,0)',1000);" @click="resetMap();"
+						<button class="btn btn-success btn-block" onclick="setTimeout('window.scroll(0,0)',500);" @click="resetMap();"
 						 data-dismiss="modal">地图({{zip.length}}项)</button>
 						<button class="btn btn-info btn-block d-none" @click="panel='grid'" onclick="window.scroll(0,0)">防止下面两个按钮错位</button>
 					</div>
@@ -962,7 +934,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					"Birmingham": { lat: 52.479511, lng: -1.901597, frontPageCount: 10, cn: '伯明翰' },
 					"Manchester": { lat: 53.4792, lng: -2.24807, frontPageCount: 10, cn: '曼彻斯特' },
 				},
-				gridPage: 10,
+				gridPage: 20,
 				minPrice: 100000,
 				zip: [],
 				rand: 0,
@@ -1014,7 +986,9 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					return dir + circle + '环'
 				},
 				dateFormat: function (input) {
-					return dayjs(input).format('YYYY年MM月DD日HH:mm:ss');
+					let s='20'+input.substring(0,2)+'-'+input.substring(2,4)+'-'+input.substring(4,6)+'T'+input.substring(6,8)+':'+input.substring(8,10)+':'+input.substring(10,12)+'Z'
+					
+					return dayjs(s).format('YYYY年MM月DD日HH:mm:ss');
 				},
 				race: function () {
 					let that = this;
@@ -1175,6 +1149,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				},
 				fetchCityBasic: async function (cityName) {
 					await this.post("http://a.greencyw.com/api", { k: "basic", city: cityName });
+					this.viewingCity=cityName;
 					this.zip = this.unzip(this.r.basic);
 				},
 

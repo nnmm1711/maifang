@@ -46,7 +46,7 @@ border-radius:5px;
 	<h1 class="d-none">英国买房 英国购房 英国房产投资 英国房地产投资</h1>
 	<div id="app">
 
-		<nav id="顶部菜单" class="navbar navbar-expand-lg navbar-light sticky-top p-1 " style="background-color: white;">
+		<nav id="顶部菜单" class="navbar navbar-expand-lg navbar-light fixed-top sticky-top p-1 " style="background-color: white;">
 			<div class="container">
 				<a class="navbar-brand d-flex align-items-center" href="?mode=front" @click="panel='front'">
 					<img src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1fydc8qb8r0j300q00qwea.jpg" alt="英国买房 英国购房 英国房产投资 英国房地产" /><strong
@@ -100,7 +100,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 							</a>
 						</div>
 						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInUp delay-2s" style="background-color: rgba(255, 255, 255, 0.3);">
-							<a href="#shaixuan">
+							<a href="#detailBreak">
 								<h4 class="text-light">
 									本周新增房源
 								</h4>
@@ -244,18 +244,32 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 			</div>
 		</div>
-		
-		<div id="shaixuan" v-if="panel=='front'&&server&&zip" class="mt-5">
-			<div  class="alert alert-secondary w-100 text-muted text-center">
-					<div class="container d-flex" v-if="panel=='front'" >
+		<hr style="margin:4rem" id='detailBreak' v-if="panel=='front'">
+		<div id="新登场" v-if="panel=='front'&&server&&zip" class="mt-5">
+			<div class="alert alert-secondary w-100 text-muted text-center">
+				<div class="container " v-if="panel=='front'">
+					<div class="row m-3 align-items-center">
+						<div class="col-md-3">
+							<div class="input-group input-group-lg">
+								<select class="form-control" v-model="viewingCity" @change="fetchCityBasic(viewingCity)">
+									<option v-for="c in _.keys(coverCities)" :value="c">{{coverCities[c].cn}}</option>
+								</select>
+								<div class="input-group-append">
+									<button class="btn btn-secondary" data-toggle="modal" data-target="#mapModal"><i class="fa fa-search"></i>&nbsp;筛选</button>
+								</div>
+							</div>
 
-							<select class="col-md-2 form-control form-control-lg" v-model="viewingCity" @change="fetchCityBasic(viewingCity)">
-								<option v-for="c in _.keys(coverCities)" :value="c">{{coverCities[c].cn}}</option>
-							</select>
-							<button class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#mapModal"><i class="fa fa-search-plus"></i></button>
-							<h3>新登场房源 - {{viewingCity}}</h3><span>(每分钟动态更新)</span>
+
 						</div>
-				
+						<div class="col">
+							新登场房源 (每分钟动态更新)
+						</div>
+					</div>
+
+
+
+				</div>
+
 			</div>
 			<div class="mx-md-4 d-flex flex-wrap justify-content-center">
 				<template v-for="v in _.take(zip,20)">
@@ -275,6 +289,9 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 		<div id="GridView" v-if="panel=='grid'">
 			<div class="d-flex flex-wrap justify-content-center">
+				<div class="alert alert-secondary w-100 text-center">
+					<h1>{{coverCities[viewingCity].cn}}</h1>
+				</div>
 				<template v-for="v,index in zip">
 					<a :href="'?id='+v.id" target="_blank" v-if="index<gridPage">
 						<div class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
@@ -293,9 +310,9 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 						<button @click="gridPage=gridPage+10" class="btn btn-primary btn-lg p-3 m-3" v-show="zip.length>gridPage">
 							加载更多(还有{{zip.length-gridPage}}项)
 						</button>
-						<button  class="btn btn-secondary btn-lg p-3 m-3 disabled" v-show="zip.length<=gridPage">
-								没有更多了
-							</button>
+						<button class="btn btn-secondary btn-lg p-3 m-3 disabled" v-show="zip.length<=gridPage">
+							没有更多了
+						</button>
 
 
 					</div>
@@ -451,16 +468,18 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel" v-if="coverCities[viewingCity]">{{coverCities[viewingCity].cn}}</h5>
+						<h5 class="modal-title" id="exampleModalLabel" v-if="coverCities[viewingCity]">
+							{{coverCities[viewingCity].cn}}
+						</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
-						<!--p>
-							本地图展示伦敦地区最近7天内发布的出售中房源信息, 建议使用个人电脑中的Chrome, Firefox 或 QQ浏览器以获得最佳效果.
-							红色表示首次发布的项目。蓝色表示刚刚降价的项目。圆圈中的数字表示此处房产中的卧室数. 请使用下面的筛选器：
-						</p-->
+						<p v-show="panel=='map'">
+							建议使用个人电脑中的Chrome, Firefox 或 QQ浏览器以获得最佳效果.
+							红色表示首次发布的项目。蓝色表示刚刚降价的项目。圆圈中的数字表示此处房产中的卧室数.
+						</p>
 						<div class="m-2">
 							<table>
 
@@ -550,7 +569,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 							<div>
 								<label for="customRange1" class="text-nowrap">起价: &pound;{{minPrice/10000}}万英镑</label>
-								<input @change="setFilter(false,false)" v-model="minPrice" type="range" class="custom-range" min="100000" max="2000000" step="100000" id="customRange1">
+								<input @change="setFilter(false,false)" v-model="minPrice" type="range" class="custom-range" min="100000" max="2000000"
+								 step="100000" id="customRange1">
 							</div>
 
 						</div>
@@ -558,11 +578,13 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 
 					</div>
-					<div class="modal-footer" v-if="zip">
-						筛选结果{{zip.length}}项
-						<button class="btn btn-info" @click="panel='grid'" data-dismiss="modal">前往列表</button>
-						<button class="btn btn-primary" @click="resetMap();" onclick="window.scroll(0,0)">前往地图</button>
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+					<div class="modal-footer">
+						<button class="btn btn-info btn-block d-none" @click="panel='grid'" onclick="window.scroll(0,0)">防止下面两个按钮错位</button>
+						<button class="btn btn-info btn-block" @click="panel='grid'" onclick="setTimeout('window.scroll(0,0)',1000);"
+						 data-dismiss="modal">列表({{zip.length}}项)</button>
+						<button class="btn btn-primary btn-block" onclick="setTimeout('window.scroll(0,0)',1000);" @click="resetMap();"
+						 data-dismiss="modal">地图({{zip.length}}项)</button>
+						<button class="btn btn-info btn-block d-none" @click="panel='grid'" onclick="window.scroll(0,0)">防止下面两个按钮错位</button>
 					</div>
 				</div>
 			</div>
@@ -1024,18 +1046,18 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					});
 				},
 				setFilter(k, v) {
-					let that=this;
-					if (k){	
+					let that = this;
+					if (k) {
 						Vue.set(v1.filter, k, v);
 					}
-					this.zip=_.chain(this.unzip(this.r.basic)).filter(this.filter).filter(x=>{return x.price>that.minPrice}).value();
-	
+					this.zip = _.chain(this.unzip(this.r.basic)).filter(this.filter).filter(x => { return x.price > that.minPrice }).value();
+
 				},
 				deleteFilter(k) {
-					let that=this;
+					let that = this;
 					Vue.delete(v1.filter, k);
-					this.zip=_.chain(this.unzip(this.r.basic)).filter(this.filter).filter(x=>{return x.price>that.minPrice}).value();
-					
+					this.zip = _.chain(this.unzip(this.r.basic)).filter(this.filter).filter(x => { return x.price > that.minPrice }).value();
+
 				},
 				getInfoByCookie: async function (data) {
 					let qrRand = Cookies.get('qrRand');

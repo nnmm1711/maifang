@@ -41,9 +41,11 @@ border-radius:5px;
 	  }	 	  
 	</style>
 </head>
+
 <body>
 	<h1 class="d-none">英国买房 英国购房 英国房产投资 英国房地产投资</h1>
 	<div id="app">
+
 		<nav id="顶部菜单" class="navbar navbar-expand-lg navbar-light sticky-top p-1 " style="background-color: white;">
 			<div class="container">
 				<a class="navbar-brand d-flex align-items-center" href="?mode=front" @click="panel='front'">
@@ -82,7 +84,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 		-->
 		<div v-if='panel=="front"' id="首页背景" class="d-flex flex-column justify-content-between" style="min-height:80vh; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
-			<div class="d-none d-md-block animated slideInDown delay-1s" style="background-color: rgba(0, 0, 0, 0.4)">
+			<div class="animated slideInDown delay-1s" style="background-color: rgba(0, 0, 0, 0.4)">
 				<p class="text-light text-center animated slideInDown delay-2s" style="font-size: 10vmin;">英国房产大全</p>
 			</div>
 			<div class="mt-auto animated slideInUp delay-1s" style="background-color: rgba(0, 0, 0, 0.6);">
@@ -91,26 +93,25 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInUp delay-2s" style="background-color: rgba(255, 255, 255, 0.3);">
 							<a href="#about">
 								<h4 class="text-light">
-									<i class="fa fa-group"></i>&nbsp;伦敦豪宅置业私人顾问
+									伦敦置业顾问
 								</h4>
-								<p class="text-light">剑桥海外投资集团 资深顾问, 投资专家, 私人定制, 私密传承</p>
+								<p class="text-light">剑桥海外投资集团 伦敦豪宅专家</p>
 								</p>
 							</a>
 						</div>
 						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInUp delay-2s" style="background-color: rgba(255, 255, 255, 0.3);">
-							<a v-if='r.count' href="/?mode=grid">
+							<a href="#shaixuan">
 								<h4 class="text-light">
-									<i class="fa fa-line-chart"></i>&nbsp;实时大数据:近7日新增房源
+									本周新增房源
 								</h4>
-								<p class="text-light">伦敦{{r.count.London}}套 伯明翰{{r.count.Birmingham}}套
-									曼彻斯特{{r.count.Manchester}}套 (每分钟动态更新)</p>
+								<p v-if="r.basic" class="text-light">{{coverCities[viewingCity].cn}}:{{r.basic.length}}套 </p>
 							</a>
 						</div>
 						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInUp delay-2s" style="background-color: rgba(255, 255, 255, 0.3);">
 							<h4 class="text-light">
-								<i class="fa fa-graduation-cap"></i>&nbsp;学区房投资
+								学区房投资
 							</h4>
-							<p class="text-light">超详尽的学区房资料
+							<p class="text-light">全英国学区房资料
 							</p>
 						</div>
 					</div>
@@ -121,12 +122,12 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 
 
-		<div v-if='panel=="front"&&server' id="分块介绍" class="mx-4" style="border-width:0;">
-			<div class="row">
+		<div v-if='panel=="front"&&server' id="分块介绍" class="mx-4 mb-5" style="border-width:0;">
+			<div class="row" style="border-width:0;">
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="?mode=map">
 						<div class="card m-2" style="height:100%; border-width:0;">
-							<img class="rounded card-img-top animated slideInUp wow " style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydfd96qn5j30za0nmq5d.jpg"
+							<img class="rounded card-img-top " style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydfd96qn5j30za0nmq5d.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1 d-flex">
 								<h3 class="card-title"><span class="borderTxt2">每分钟更新全英国房源</span></h3>
@@ -140,7 +141,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="?mode=map">
 						<div class="card m-2" style="height:100%; border-width:0;">
-							<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1fyi1xn1qhij30cl09375o.jpg"
+							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1fyi1xn1qhij30cl09375o.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
 								<h3 class="card-title"><span class="borderTxt2">全景地图选房</span></h3>
@@ -155,7 +156,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<div class="card m-2" style="height:100%; border-width:0;">
-						<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydeu1ji82j30p00go40b.jpg"
+						<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydeu1ji82j30p00go40b.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
 							<h3 class="card-title"><span class="borderTxt2">精品豪宅资讯</span></h3>
@@ -169,7 +170,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<div class="card m-2" style="height:100%; border-width:0;">
 						<a href="#">
-							<img class="rounded card-img-top animated slideInUp wow" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydefhdibvj30d607eq47.jpg"
+							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydefhdibvj30d607eq47.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
 								<h3 class="card-title"><span class="borderTxt2">高端学区房</span></h3>
@@ -243,62 +244,66 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 			</div>
 		</div>
-		<div id="数字与筛选" v-if="false" class="container" style="min-height:50vh">
-			<div class="row">
+		
+		<div id="shaixuan" v-if="panel=='front'&&server&&zip" class="mt-5">
+			<div  class="alert alert-secondary w-100 text-muted text-center">
+					<div class="container d-flex" v-if="panel=='front'" >
 
-
+							<select class="col-md-2 form-control form-control-lg" v-model="viewingCity" @change="fetchCityBasic(viewingCity)">
+								<option v-for="c in _.keys(coverCities)" :value="c">{{coverCities[c].cn}}</option>
+							</select>
+							<button class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#mapModal"><i class="fa fa-search-plus"></i></button>
+							<h3>新登场房源 - {{viewingCity}}</h3><span>(每分钟动态更新)</span>
+						</div>
+				
+			</div>
+			<div class="mx-md-4 d-flex flex-wrap justify-content-center">
+				<template v-for="v in _.take(zip,20)">
+					<a :href="'?id='+v.id" target="_blank">
+						<div class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
+							<p class="m-1">
+								<span class="borderTxt">{{calcDistance(v.lat,v.lng,coverCities[viewingCity].lat,coverCities[viewingCity].lng)}}{{v.beds}}居
+									&pound;{{ (v.price*1000).toLocaleString()}}<br>
+									发布于英国时间{{v.date.substring(2,4)}}月{{v.date.substring(4,6)}}日{{v.date.substring(6,8)}}:{{v.date.substring(8,10)}}
+								</span>
+							</p>
+						</div>
+					</a>
+				</template>
 			</div>
 		</div>
-		<template id="新登场" v-if="panel=='front'&&server&&r.coverData" v-for="c in coverCities">
-			<div class=" mb-5">
-				<div class="alert alert-secondary w-100 text-muted text-center">
-					<h3>新登场房源 - {{c.cn}}</h3><span>(每分钟动态更新)</span>
-				</div>
-				<div class="mx-md-4 d-flex flex-wrap  justify-content-center">
-					<template v-for="v in _.take(unzip(r.coverData[c.name]),c.frontPageCount)">
-						<a :href="'?id='+v.id" target="_blank">
-							<div class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
-								<p class="m-1">
-									<span class="borderTxt">{{calcDistance(v.lat,v.lng,c.lat,c.lng)}}{{v.beds}}居
-										&pound;{{ (v.price*1000).toLocaleString()}}<br>
-										发布于英国时间{{v.date.substring(2,4)}}月{{v.date.substring(4,6)}}日{{v.date.substring(6,8)}}:{{v.date.substring(8,10)}}
-									</span>
-								</p>
-							</div>
-						</a>
-					</template>
-				</div>
-			</div>
-		</template>
+
 		<div id="GridView" v-if="panel=='grid'">
-			<div class="d-flex flex-wrap justify-content-center" v-if="r.coverData">
-				<template v-for="chunk,page in _.chunk(r.coverData.London,10)">
-					<template v-for="v in unzip(chunk)" v-if="page<gridPage">
-						<a :href="'?id='+v.id" target="_blank">
-							<div class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
-								<p class="m-1">
-									<span class="borderTxt">{{calcDistance(v.lat,v.lng,51.512198,-0.122199)}}{{v.beds}}居
-										&pound;{{ (v.price*1000).toLocaleString()}}<br>
-										发布于英国时间{{v.date.substring(2,4)}}月{{v.date.substring(4,6)}}日{{v.date.substring(6,8)}}:{{v.date.substring(8,10)}}
-									</span>
-								</p>
-							</div>
-						</a>
-					</template>
+			<div class="d-flex flex-wrap justify-content-center">
+				<template v-for="v,index in zip">
+					<a :href="'?id='+v.id" target="_blank" v-if="index<gridPage">
+						<div class=" m-1 rounded delay-1s wow d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
+							<p class="m-1">
+								<span class="borderTxt">{{calcDistance(v.lat,v.lng,51.512198,-0.122199)}}{{v.beds}}居
+									&pound;{{(v.price*1000).toLocaleString()}}<br>
+									发布于英国时间{{v.date.substring(2,4)}}月{{v.date.substring(4,6)}}日{{v.date.substring(6,8)}}:{{v.date.substring(8,10)}}
+								</span>
+							</p>
+						</div>
+					</a>
 				</template>
 				<div class="d-flex w-100" style="min-height:30vh">
 					<div class="m-auto animated rubberBand delay-1s">
-						<button class="btn btn-success btn-lg p-3 m-3">筛选</button>
-						<button @click="gridPage=gridPage+1" class="btn btn-primary btn-lg p-3 m-3">
-							加载更多
+						<button class="btn btn-success btn-lg p-3 m-3" data-toggle="modal" data-target="#mapModal">筛选</button>
+						<button @click="gridPage=gridPage+10" class="btn btn-primary btn-lg p-3 m-3" v-show="zip.length>gridPage">
+							加载更多(还有{{zip.length-gridPage}}项)
 						</button>
+						<button  class="btn btn-secondary btn-lg p-3 m-3 disabled" v-show="zip.length<=gridPage">
+								没有更多了
+							</button>
+
 
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div id="地图" v-if="panel=='map'">
+		<div id="地图" v-show="panel=='map'">
 			<nav class="nav fixed-bottom m-5">
 				<button class="btn btn-warning py-0 px-2" style="z-index:-1;font-size: 2rem;" data-toggle="modal" data-target="#mapModal">
 					使用说明
@@ -306,141 +311,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 			</nav>
 			<div id="myMap" style="height: 100vh;"></div>
 			<!-- Modal -->
-			<div class="modal" id="mapModal" tabindex="-1" role="dialog">
-				<div class="modal-dialog modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">使用说明</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<p>
-								本地图展示伦敦地区最近7天内发布的出售中房源信息, 建议使用个人电脑中的Chrome, Firefox 或 QQ浏览器以获得最佳效果.
-								红色表示首次发布的项目。蓝色表示刚刚降价的项目。圆圈中的数字表示此处房产中的卧室数. 请使用下面的筛选器：
-							</p>
-							<table>
-								<!--tr>
-									<td>
-										城市
-									</td>
-									<td>
-										<div class="btn-group btn-group-toggle" data-toggle="buttons">
-											<button class="btn btn-outline-secondary p-1" active>
-												<input type="radio" name="城市" id="option1" checked> 伦敦
-											</button>
-											<button class="btn btn-outline-secondary p-1">
-												<input type="radio" name="城市" id="option2"> 曼彻斯特
-											</button>
-											<button class="btn btn-outline-secondary p-1">
-												<input type="radio" name="城市" id="option2"> 利物浦
-											</button>
 
-											<button class="btn btn-outline-secondary p-1">
-												<input type="radio" name="城市" id="option2"> 格拉斯哥
-											</button>
-										</div>
-									</td>
-								</tr-->
-								<tr>
-									<td>
-										产权
-									</td>
-									<td>
-										<div class="btn-group btn-group-toggle" data-toggle="buttons">
-											<button class="btn btn-outline-secondary p-1" @click="deleteFilter('freehold')">
-												<input type="radio" name="产权" id="option2"> 全部
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('freehold',true)">
-												<input type="radio" name="产权" id="option1"> 永久
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('freehold',false)">
-												<input type="radio" name="产权" id="option2"> 非永久
-											</button>
-
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										建筑
-									</td>
-									<td>
-										<div class="btn-group btn-group-toggle" data-toggle="buttons">
-											<button class="btn btn-outline-secondary p-1" @click="deleteFilter('flat')">
-												<input type="radio" name="发布" id="option2"> 全部
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('flat',true)">
-												<input type="radio" name="建筑" id="option1"> 公寓
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('flat',false)">
-												<input type="radio" name="建筑" id="option2"> 别墅或其它(非公寓)
-											</button>
-
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										发布
-									</td>
-									<td>
-										<div class="btn-group btn-group-toggle" data-toggle="buttons">
-											<button class="btn btn-outline-secondary p-1" @click="deleteFilter('newCome')">
-												<input type="radio" name="发布" id="option2"> 全部
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('newCome',true)">
-												<input type="radio" name="发布" id="option1"> 新登场
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('newCome',false)">
-												<input type="radio" name="发布" id="option2"> 刚刚降价
-											</button>
-
-
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										卧室数
-									</td>
-									<td>
-										<div class="btn-group btn-group-toggle" data-toggle="buttons">
-											<button class="btn btn-outline-secondary p-1" @click="deleteFilter('beds')">
-												<input type="radio" name="发布" id="option2"> 全部
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',0)">
-												<input type="radio" name="卧室数" id="option1"> 0间
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',1)">
-												<input type="radio" name="卧室数" id="option2"> 1间
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',2)">
-												<input type="radio" name="卧室数" id="option2"> 2间
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',3)">
-												<input type="radio" name="卧室数" id="option2"> 3间
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',4)">
-												<input type="radio" name="卧室数" id="option2"> 4间
-											</button>
-											<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',5)">
-												<input type="radio" name="卧室数" id="option2"> 5间及以上
-											</button>
-										</div>
-									</td>
-								</tr>
-							</table>
-							<div class="alert alert-success mt-2">共计{{zip.length}}项, 当前筛选结果{{_.filter(zip,filter).length}}项</div>
-							<h3><span class="badge badge-danger">请点击地图上的小圆点查看详情</span></h3>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 		<div id="二维码登录页" style="height:80vh" class="d-flex alert alert-secondary" v-if="panel=='login'">
 			<div class="m-auto">
@@ -573,6 +444,127 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					客服微信
 				</span><br>
 				<img v-if="server" class="img-fluid " style="width:8rem" :src="server+'wwwpic/qr.png'" alt="英国房产地产投资 剑桥海外投资集团 伦敦买房" />
+			</div>
+		</div>
+
+		<div class="modal" id="mapModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel" v-if="coverCities[viewingCity]">{{coverCities[viewingCity].cn}}</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<!--p>
+							本地图展示伦敦地区最近7天内发布的出售中房源信息, 建议使用个人电脑中的Chrome, Firefox 或 QQ浏览器以获得最佳效果.
+							红色表示首次发布的项目。蓝色表示刚刚降价的项目。圆圈中的数字表示此处房产中的卧室数. 请使用下面的筛选器：
+						</p-->
+						<div class="m-2">
+							<table>
+
+								<tr>
+									<td>
+										产权
+									</td>
+									<td>
+										<div class="btn-group btn-group-toggle" data-toggle="buttons">
+											<button class="btn btn-outline-secondary p-1" @click="deleteFilter('freehold')">
+												<input type="radio" name="产权" id="option2"> 全部
+											</button>
+											<button class="btn btn-outline-secondary p-1" @click="setFilter('freehold',true)">
+												<input type="radio" name="产权" id="option1"> 永久
+											</button>
+											<button class="btn btn-outline-secondary p-1" @click="setFilter('freehold',false)">
+												<input type="radio" name="产权" id="option2"> 非永久
+											</button>
+
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										建筑
+									</td>
+									<td>
+										<div class="btn-group btn-group-toggle" data-toggle="buttons">
+											<button class="btn btn-outline-secondary p-1" @click="deleteFilter('flat')">
+												<input type="radio" name="发布" id="option2"> 全部
+											</button>
+											<button class="btn btn-outline-secondary p-1" @click="setFilter('flat',true)">
+												<input type="radio" name="建筑" id="option1"> 公寓
+											</button>
+											<button class="btn btn-outline-secondary p-1" @click="setFilter('flat',false)">
+												<input type="radio" name="建筑" id="option2"> 别墅或其它(非公寓)
+											</button>
+
+										</div>
+									</td>
+								</tr>
+
+
+							</table>
+							<div>
+								<label class="text-nowrap">发布</label>
+								<div class="btn-group btn-group-toggle" data-toggle="buttons">
+									<button class="btn btn-outline-secondary p-1" @click="deleteFilter('newCome')">
+										<input type="radio" name="发布" id="option2"> 全部
+									</button>
+									<button class="btn btn-outline-secondary p-1" @click="setFilter('newCome',true)">
+										<input type="radio" name="发布" id="option1"> 新登场
+									</button>
+									<button class="btn btn-outline-secondary p-1" @click="setFilter('newCome',false)">
+										<input type="radio" name="发布" id="option2"> 刚刚降价
+									</button>
+
+
+								</div>
+							</div>
+							<div>
+								<label class="text-nowrap">卧室</label>
+								<div class="btn-group btn-group-toggle" data-toggle="buttons">
+									<button class="btn btn-outline-secondary p-1" @click="deleteFilter('beds')">
+										<input type="radio" name="发布" id="option2"> 全部
+									</button>
+									<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',0)">
+										<input type="radio" name="卧室数" id="option1"> 无
+									</button>
+									<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',1)">
+										<input type="radio" name="卧室数" id="option2"> 1间
+									</button>
+									<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',2)">
+										<input type="radio" name="卧室数" id="option2"> 2
+									</button>
+									<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',3)">
+										<input type="radio" name="卧室数" id="option2"> 3
+									</button>
+									<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',4)">
+										<input type="radio" name="卧室数" id="option2"> 4
+									</button>
+									<button class="btn btn-outline-secondary p-1" @click="setFilter('beds',5)">
+										<input type="radio" name="卧室数" id="option2"> 5间及以上
+									</button>
+								</div>
+							</div>
+
+							<div>
+								<label for="customRange1" class="text-nowrap">起价: &pound;{{minPrice/10000}}万英镑</label>
+								<input @change="setFilter(false,false)" v-model="minPrice" type="range" class="custom-range" min="100000" max="2000000" step="100000" id="customRange1">
+							</div>
+
+						</div>
+
+
+
+					</div>
+					<div class="modal-footer" v-if="zip">
+						筛选结果{{zip.length}}项
+						<button class="btn btn-info" @click="panel='grid'" data-dismiss="modal">前往列表</button>
+						<button class="btn btn-primary" @click="resetMap();" onclick="window.scroll(0,0)">前往地图</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -943,24 +935,22 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				]
 				, r: {},
 				ind: ['date', 'beds', 'flat', 'newCome', 'freehold', 'id', 'lat', 'lng', 'price'],
-				coverCities: [
-					{ name: "London", lat: 51.512198, lng: -0.122199, frontPageCount: 15, cn: '伦敦' },
-					{ name: "Birmingham", lat: 52.479511, lng: -1.901597, frontPageCount: 10, cn: '伯明翰' },
-					{ name: "Manchester", lat: 53.4792, lng: -2.24807, frontPageCount: 10, cn: '曼彻斯特' },
-				],
-				gridPage: 1,
+				coverCities: {
+					"London": { lat: 51.512198, lng: -0.122199, frontPageCount: 15, cn: '伦敦' },
+					"Birmingham": { lat: 52.479511, lng: -1.901597, frontPageCount: 10, cn: '伯明翰' },
+					"Manchester": { lat: 53.4792, lng: -2.24807, frontPageCount: 10, cn: '曼彻斯特' },
+				},
+				gridPage: 10,
+				minPrice: 100000,
 				zip: [],
 				rand: 0,
 				filter: {},
 				nickname: "馬 寧",
 				bounds: "",
 				panel: "front",
-				loaded: false,
-				showbuffer: false,
-				pointer: 0,
-				frontImg: "http://wx4.sinaimg.cn/large/0060lm7Tly1fxzmql2s5cj318g0tj4qp.jpg",
 				showlogos: false,
 				server: false,
+				viewingCity: 'London'
 			}, computed: {
 
 			},
@@ -969,7 +959,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					let that = this;
 					let res = _.chain(arr).map(x => {
 						let y = _.split(x, ',');
-						return [y[0].substring(0, 12), y[0][12], y[0][13] == '1', y[0][14] == '1', y[0][15] == '1', y[0].substring(16, 99), y[1], y[2], y[3]];
+						return [y[0].substring(0, 12), parseInt(y[0][12]), y[0][13] == '1', y[0][14] == '1', y[0][15] == '1', y[0].substring(16, 99), y[1], y[2], parseInt(y[3]) * 1000];
 					}
 					).map(
 						x => {
@@ -1034,12 +1024,18 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					});
 				},
 				setFilter(k, v) {
-					Vue.set(v1.filter, k, v);
-					this.resetMap()
+					let that=this;
+					if (k){	
+						Vue.set(v1.filter, k, v);
+					}
+					this.zip=_.chain(this.unzip(this.r.basic)).filter(this.filter).filter(x=>{return x.price>that.minPrice}).value();
+	
 				},
 				deleteFilter(k) {
-					Vue.delete(v1.filter, k)
-					this.resetMap()
+					let that=this;
+					Vue.delete(v1.filter, k);
+					this.zip=_.chain(this.unzip(this.r.basic)).filter(this.filter).filter(x=>{return x.price>that.minPrice}).value();
+					
 				},
 				getInfoByCookie: async function (data) {
 					let qrRand = Cookies.get('qrRand');
@@ -1089,56 +1085,77 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 						}
 					}
 				},
-				resetMap() {
+				resetMap: async function () {
+					this.panel = 'map';
+					let n = 0;
+					while (
+						typeof Microsoft == "undefined" ||
+						typeof Microsoft.Maps == "undefined" ||
+						typeof Microsoft.Maps.Map == "undefined" ||
+						typeof Microsoft.Maps.Pushpin == "undefined" ||
+						typeof Microsoft.Maps.LocationRect == "undefined"
+					) {
+						await sleep(10);
+						n += 1;
+					}
 					let that = this;
-					let map = new Microsoft.Maps.Map(document.getElementById("myMap"), {
-						center: new Microsoft.Maps.Location(51.511925, -0.058628),
-						mapTypeId: Microsoft.Maps.MapTypeId.road,
-						zoom: 12
-					});
-
-					var infobox = new Microsoft.Maps.Infobox(map.center, {
-						visible: false,
-						autoAlignment: true
-					});
-					infobox.setMap(map);
-					_.filter(that.zip, that.filter).forEach(lo => {
-						loc = new Microsoft.Maps.Location(lo.lat, lo.lng);
-						pushpin = new Microsoft.Maps.Pushpin(loc, {
-							color: lo.newCome ? "red" : "blue",
-							text: lo.beds.toString() + (lo.beds > 4 ? '+' : ''),
-							subTitle: lo.date.substring(2,6),
-							title: "£" + lo.price.toLocaleString()+',000'
+					this.$nextTick(function () {
+						let map = new Microsoft.Maps.Map(document.getElementById("myMap"), {
+							center: new Microsoft.Maps.Location(that.coverCities[that.viewingCity].lat, that.coverCities[that.viewingCity].lng),
+							mapTypeId: Microsoft.Maps.MapTypeId.road,
+							zoom: 12
 						});
-						map.entities.push(pushpin);
 
-						Microsoft.Maps.Events.addHandler(pushpin, "click", function (
-							args
-						) {
-							that.pin = lo.x;
-							let tenure = lo.tenure ? " 土地权:" + lo.tenure : "";
-							infobox.setOptions({
-								location: args.target.getLocation(),
-								description:
-									'<div >售价£' +
-									lo.price.toLocaleString() + ',000<br>' + lo.beds + (lo.beds > 4 ? '+' : '') +
-									"卧室," + (lo.flat ? "公寓, " : "别墅, ") + (lo.freehold ? "永久产权" : "非永久产权") + "<br>更新于" + 
-									lo.date.substring(0,2) +'年'+lo.date.substring(2,4)+"月"+lo.date.substring(4,6)+'日'+
-									'<br><a href="?id=' +
-									lo.id +
-									'"target="_blank"><div class="d-flex" style="height:300px;width:300px;background-size:cover;background-image:url(' + 
-									that.server + 'db/'+lo.date.substring(0,6)+'/'
-									+ lo.id  +
-									'/00.jpg)"><h2 class="m-auto borderTxt">请点击图片</h2></div></a>'
-									+ "</div>",
-								visible: true,
-								maxHeight: 500,
-								maxWidth: 500
+						var infobox = new Microsoft.Maps.Infobox(map.center, {
+							visible: false,
+							autoAlignment: true
+						});
+						infobox.setMap(map);
+						that.zip.forEach(lo => {
+
+							loc = new Microsoft.Maps.Location(lo.lat, lo.lng);
+							pushpin = new Microsoft.Maps.Pushpin(loc, {
+								color: lo.newCome ? "red" : "blue",
+								text: lo.beds.toString() + (lo.beds > 4 ? '+' : ''),
+								subTitle: lo.date.substring(2, 6),
+								title: "£" + lo.price.toLocaleString() + ',000'
+							});
+							map.entities.push(pushpin);
+
+							Microsoft.Maps.Events.addHandler(pushpin, "click", function (
+								args
+							) {
+								that.pin = lo.x;
+								let tenure = lo.tenure ? " 土地权:" + lo.tenure : "";
+								infobox.setOptions({
+									location: args.target.getLocation(),
+									description:
+										'<div >售价£' +
+										lo.price.toLocaleString() + ',000<br>' + lo.beds + (lo.beds > 4 ? '+' : '') +
+										"卧室," + (lo.flat ? "公寓, " : "别墅, ") + (lo.freehold ? "永久产权" : "非永久产权") + "<br>更新于" +
+										lo.date.substring(0, 2) + '年' + lo.date.substring(2, 4) + "月" + lo.date.substring(4, 6) + '日' +
+										'<br><a href="?id=' +
+										lo.id +
+										'"target="_blank"><div class="d-flex" style="height:300px;width:300px;background-size:cover;background-image:url(' +
+										that.server + 'db/' + lo.date.substring(0, 6) + '/'
+										+ lo.id +
+										'/00.jpg)"><h2 class="m-auto borderTxt">请点击图片</h2></div></a>'
+										+ "</div>",
+									visible: true,
+									maxHeight: 500,
+									maxWidth: 500
+								});
 							});
 						});
 					});
 
-				}
+
+				},
+				fetchCityBasic: async function (cityName) {
+					await this.post("http://a.greencyw.com/api", { k: "basic", city: cityName });
+					this.zip = this.unzip(this.r.basic);
+				},
+
 			}, created: async function () {
 				this.race();
 				let a = (new Date()).valueOf();
@@ -1173,22 +1190,10 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					if (mode == 'map') {//地图
 						this.panel = 'map';
 						let that = this;
-						//await this.post("http://a.greencyw.com", { k: "getItems" });
-						await this.post("http://a.greencyw.com/api", { k: "basic", city: 'London', from: 181222, to: 181226 });
+						await this.post("http://a.greencyw.com/api", { k: "basic", city: 'London' });
 						this.zip = this.unzip(this.r.basic);
-						let n = 0;
-						while (
-							typeof Microsoft == "undefined" ||
-							typeof Microsoft.Maps == "undefined" ||
-							typeof Microsoft.Maps.Map == "undefined" ||
-							typeof Microsoft.Maps.Pushpin == "undefined" ||
-							typeof Microsoft.Maps.LocationRect == "undefined"
-						) {
-							await sleep(10);
-							n += 1;
-						}
-						console.log(n);
-						this.resetMap();
+						//console.log(n);
+						await this.resetMap();
 					}
 					else if (mode == 'profile') {//个人资料
 						await this.getInfoByCookie({ k: "profile" })
@@ -1202,10 +1207,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 						this.panel = 'grid';
 					}
 					else {//首页
-						//await that.post("http://a.greencyw.com", { k: "get20ForFrontPage" });
-						await this.post("http://a.greencyw.com/api", { k: "frontpage" });
-						//await this.post("http://a.greencyw.com", { k: "getItems" });
-						//this.zip = _.map(this.r.props, function (x) { return _.zipObject(that.r.ind, x) });
+						await this.post("http://a.greencyw.com/api", { k: "basic", city: 'London' });
+						this.zip = this.unzip(this.r.basic);
 					}
 				}
 			}

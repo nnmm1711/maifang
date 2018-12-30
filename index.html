@@ -56,8 +56,16 @@ border-radius:5px;
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav w-100 d-flex justify-content-around">
-						<li class="nav-item active">
-							<a class="nav-link text-muted" href="?mode=map" @click="panel=&quot;list&quot;">购房地图</a>
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+								城市
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">伦敦</a>
+								<a class="dropdown-item" href="#">伯明翰</a>
+								<a class="dropdown-item" href="#">曼彻斯特</a>
+
+							</div>
 						</li>
 						<li class="nav-item dropdown active">
 							<a class="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
@@ -65,12 +73,12 @@ border-radius:5px;
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">线上会员</a>
-								<a class="dropdown-item" href="#">私人投资顾问</a>
-								<a class="dropdown-item" href="#">机构合作</a>
+								<a class="dropdown-item" href="#">伦敦地产私人投资顾问</a>
+
 							</div>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link text-muted" href="#" @click="panel='about'">专业团队</a>
+							<a class="nav-link text-muted" href="#" @click="panel='about'">关于剑桥海外投资集团</a>
 						</li>
 					</ul>
 				</div>
@@ -81,9 +89,12 @@ http://wx4.sinaimg.cn/large/0060lm7Tly1fydjtemg6ij30sg0gomzw.jpg
 http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg
 http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
+
+<div v-if='panel=="front"' id="bg" class="d-flex flex-column justify-content-between" :style="background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center;min-height:80vh;  background-size: cover; ">
 		-->
-		<div v-if='panel=="front"' id="首页背景" class="d-flex flex-column justify-content-between" style="min-height:80vh; background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center; background-size: cover; ">
-			<div class="animated slideInDown delay-1s" style="background-color: rgba(0, 0, 0, 0.4)">
+		<div v-if='panel=="front"' id="bg" class="d-flex flex-column justify-content-between" :style="{background : 'url(' + bgPic + ')  center center', 'min-height':'80vh',  'background-size': 'cover' }">
+
+			<div class="d-none d-md-block animated slideInDown delay-1s" style="background-color: rgba(0, 0, 0, 0.6)">
 				<p class="text-light text-center animated slideInDown delay-1s" style="font-size: 15vmin;">英国房产大全</p>
 			</div>
 			<div class="mt-auto animated slideInUp delay-1s" style="background-color: rgba(0, 0, 0, 0.6);">
@@ -98,7 +109,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 								</p>
 							</a>
 						</div>
-						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInUp delay-1s" style="background-color: rgba(255, 255, 255, 0.3);">
+						<div class="col-md-3 m-1 p-2 rounded border-light border" style="background-color: rgba(255, 255, 255, 0.3);">
 							<a href="#新登场">
 								<h4 class="text-light">
 									本周新增房源
@@ -117,6 +128,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 			</div>
 		</div>
+
+
 
 
 
@@ -183,7 +196,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
 					<a href="javascript:void(0);" @click="showlogos=true">
-						<div class="card m-2 wow pulse" style="height:100%; border-width:0;">
+						<div class="card m-2" style="height:100%; border-width:0;">
 							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/large/0060lm7Tly1fy79xuw0loj30ap06e0t9.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
@@ -202,7 +215,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					</template>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-2 wow pulse" style="height:100%; border-width:0;">
+					<div class="card m-2" style="height:100%; border-width:0;">
 						<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1fydetdjr0aj318g0tn76t.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
@@ -215,24 +228,24 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					</div>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-2 wow pulse" style="height:100%; border-width:0;">
+					<div class="card m-2" style="height:100%; border-width:0;">
 						<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx4.sinaimg.cn/large/0060lm7Tly1fydjtemg6ij30sg0gomzw.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
 							<h3 class="card-title"><span class="borderTxt2">全流程服务</span></h3>
 						</div>
 						<div class="card-body text-muted p-3">
-							<p class="card-text">商务考察接待，税务咨询，过户，交易，物业代理，出租，出售，传承
+							<p class="card-text">商务考察接待，税务咨询，过户，交易，物业代理，出租，出售
 							</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-6 col-lg-3 p-0 mt-2">
-					<div class="card m-2 wow pulse" style="height:100%; border-width:0;">
+					<div class="card m-2" style="height:100%; border-width:0;">
 						<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/mw690/0060lm7Tly1fylg96fmt6j30s40k9my7.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
-							<h3 class="card-title"><span class="borderTxt2">隐私保护</span></h3>
+							<h3 class="card-title"><span class="borderTxt2">保护隐私</span></h3>
 						</div>
 						<div class="card-body text-muted p-3">
 							<p class="card-text">保护客户的隐私始终是我们工作的重中之重
@@ -243,32 +256,30 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 			</div>
 		</div>
-	
+
 		<div id="新登场" v-if="['front','grid'].includes(panel)&&server&&zip" style="margin:10vmin 0 0 0">
-			<div class="alert alert-secondary w-100 text-muted text-center py-5" v-if="panel=='front'">
+			<div class="alert alert-secondary w-100 text-muted text-center py-5 m-0" v-if="panel=='front'">
 				<div class="container " v-if="panel=='front'">
 					<div class="row align-items-center">
-						
 						<div class="col flex flex-wrap">
-							<template v-for="c in _.toPairs(coverCities)">								
-									<button class="btn btn-info m-1" @click="fetchCityBasic(c[0])">{{c[1].cn}}</button>
+							<template v-for="c in _.toPairs(coverCities)">
+								<button type="button" class="btn btn-outline-secondary m-1" @click="fetchCityBasic(c[0])">{{c[1].cn}}</button>
 							</template>
-							
-						</div>
-						<div class="col-md-3">
-								<button class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#mapModal"><i class="fa fa-search"></i>&nbsp;地图</button>
 						</div>
 					</div>
-					
 				</div>
+			</div>
+			<div class="">
+				<button class="btn btn-secondary btn-lg btn-block mb-3" data-toggle="modal" data-target="#mapModal"><i class="fa fa-search"></i>&nbsp;地图({{zip.length}}项)</button>
 			</div>
 			<div class="mx-md-4 d-flex flex-wrap justify-content-center">
 				<template v-for="v in _.take(zip,gridPage)">
 					<a :href="'?id='+v.id" target="_blank">
-						<div class=" m-1 rounded wow d-flex flex-wrap align-items-end flipInX" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
+						<div class=" m-1 rounded d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
 							<p class="m-1">
-								<span class="borderTxt text">{{coverCities[viewingCity].cn}} {{calcDistance(v.lat,v.lng,coverCities[viewingCity].lat,coverCities[viewingCity].lng)}}{{v.beds}}居
-									&pound;{{ (v.price).toLocaleString()}}<br>
+								<span class="borderTxt text">{{coverCities[viewingCity].cn}}
+									{{calcDistance(v.lat,v.lng,viewingCity)}}{{v.beds}}居
+									<span v-if="v.price>100000">{{Math.round(v.price/10000)}}万英镑</span><br>
 									发布于北京时间{{dateFormat(v.date)}}
 								</span>
 							</p>
@@ -309,8 +320,9 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 		<div id="二维码登录页" style="height:80vh" class="d-flex alert alert-secondary" v-if="panel=='login'">
 			<div class="m-auto">
 				<center>
-					<h4>请用微信扫二维码</h4>
+					<h4>登录后查看详情</h4>
 					<canvas style="height:10rem" id='qrcode'></canvas>
+					<h4>微信扫一扫登录</h4>
 				</center>
 			</div>
 		</div>
@@ -497,7 +509,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 							</table>
 							<div>
-								<label class="text-nowrap">发布</label>
+								<label class="text-nowrap">类型</label>
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
 									<button class="btn btn-outline-secondary p-1" @click="deleteFilter('newCome')">
 										<input type="radio" name="发布" id="option2"> 全部
@@ -511,6 +523,21 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 
 								</div>
+							</div>
+							<div class=" d-flex">
+								<label class="text-nowrap mr-1">日期</label>
+
+								<div class="custom-control custom-checkbox mr-2">
+									<input type="checkbox" class="custom-control-input" id="customCheck1" v-model="pubDateFilter">
+									<label class="custom-control-label text-nowrap" for="customCheck1">全部</label>
+								</div>
+								<select class="form-control" v-show="pubDateFilter">
+									<option>123</option>
+									<option>123</option>
+								</select>
+
+
+
 							</div>
 							<div>
 								<label class="text-nowrap">卧室</label>
@@ -538,7 +565,20 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 									</button>
 								</div>
 							</div>
+							<div>
+								
+								<select @change="setFilter('loc',filterLoc)" v-model="filterLoc" class='form-control'>
+										<option value="*">
+												全部区域
+											</option>
+									<template v-for="lo in _.chain(zip).countBy('loc').toPairs().orderBy(x=>{return x[1]},'desc').value()">
+										<option :value="lo[0]">
+											{{lo[0]}}({{lo[1]}}套)
+										</option>
+									</template>
 
+								</select>
+							</div>
 							<div>
 								<label for="customRange1" class="text-nowrap">起价: &pound;{{minPrice/10000}}万英镑</label>
 								<input @change="setFilter(false,false)" v-model="minPrice" type="range" class="custom-range" min="100000" max="2000000"
@@ -553,9 +593,9 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					<div class="modal-footer">
 						<button class="btn btn-info btn-block d-none" @click="panel='grid'" onclick="window.scroll(0,0)">防止下面两个按钮错位</button>
 						<button class="btn btn-info btn-block" @click="panel='grid'" onclick="setTimeout('window.scroll(0,0)',500);"
-						 data-dismiss="modal">列表({{zip.length}}项)</button>
+						 data-dismiss="modal"><i class="fa fa-th-large"></i></i>&nbsp;列表({{zip.length}}项)</button>
 						<button class="btn btn-success btn-block" onclick="setTimeout('window.scroll(0,0)',500);" @click="resetMap();"
-						 data-dismiss="modal">地图({{zip.length}}项)</button>
+						 data-dismiss="modal"><i class="fa fa-search"></i>&nbsp;地图({{zip.length}}项)</button>
 						<button class="btn btn-info btn-block d-none" @click="panel='grid'" onclick="window.scroll(0,0)">防止下面两个按钮错位</button>
 					</div>
 				</div>
@@ -930,10 +970,13 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				, r: {},
 				ind: ['date', 'beds', 'flat', 'newCome', 'freehold', 'id', 'lat', 'lng', 'price'],
 				coverCities: {
-					"London": { lat: 51.512198, lng: -0.122199, frontPageCount: 15, cn: '伦敦' },
-					"Birmingham": { lat: 52.479511, lng: -1.901597, frontPageCount: 10, cn: '伯明翰' },
-					"Manchester": { lat: 53.4792, lng: -2.24807, frontPageCount: 10, cn: '曼彻斯特' },
+					"London": { lat: 51.512198, lng: -0.122199, cn: '伦敦', r9: 0.5 },
+					"Birmingham": { lat: 52.479511, lng: -1.901597, cn: '伯明翰', r9: 0.22 },
+					"Manchester": { lat: 53.4792, lng: -2.24807, cn: '曼彻斯特', r9: 0.18 },
 				},
+				pubDateFilter: false,
+				bgPic: '',
+				filterLoc: '*',
 				gridPage: 20,
 				minPrice: 100000,
 				zip: [],
@@ -953,16 +996,21 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					let that = this;
 					let res = _.chain(arr).map(x => {
 						let y = _.split(x, ',');
-						return [y[0].substring(0, 12), parseInt(y[0][12]), y[0][13] == '1', y[0][14] == '1', y[0][15] == '1', y[0].substring(16, 99), y[1], y[2], parseInt(y[3]) * 1000];
+						return [y[0].substring(0, 12), parseInt(y[0][12]), y[0][13] == '1', y[0][14] == '1', y[0][15] == '1', y[0].substring(16, 99), y[1], y[2], parseInt(y[3]) * 1000, that.calcDistance(y[1], y[2], that.viewingCity)];
 					}
 					).map(
 						x => {
-							return _.zipObject(['date', 'beds', 'flat', 'newCome', 'freehold', 'id', 'lat', 'lng', 'price'], x)
+							return _.zipObject(['date', 'beds', 'flat', 'newCome', 'freehold', 'id', 'lat', 'lng', 'price', 'loc'], x)
 						}
 					).value();
 					return res;
 
-				}, calcDistance: function (x, y, x0, y0) {
+				},
+				calcDistance: function (x, y, cityName) {
+					y0 = this.coverCities[cityName].lng
+					x0 = this.coverCities[cityName].lat
+					r9 = this.coverCities[cityName].r9
+
 					xd = x - x0;
 					yd = y - y0;
 					if (xd > 0) {
@@ -982,12 +1030,12 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 						if (yd > 0) { dir = '东' } else { dir = '西' }
 					}
 					distance = Math.sqrt(Math.pow(xd, 2) + Math.pow(yd, 2));
-					circle = Math.floor(Math.sqrt(distance) / 0.08);
+					circle = Math.floor(Math.sqrt(distance / r9) * 10);
 					return dir + circle + '环'
 				},
 				dateFormat: function (input) {
-					let s='20'+input.substring(0,2)+'-'+input.substring(2,4)+'-'+input.substring(4,6)+'T'+input.substring(6,8)+':'+input.substring(8,10)+':'+input.substring(10,12)+'Z'
-					
+					let s = '20' + input.substring(0, 2) + '-' + input.substring(2, 4) + '-' + input.substring(4, 6) + 'T' + input.substring(6, 8) + ':' + input.substring(8, 10) + ':' + input.substring(10, 12) + 'Z'
+
 					return dayjs(s).format('YYYY年MM月DD日HH:mm:ss');
 				},
 				race: function () {
@@ -1022,7 +1070,12 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				setFilter(k, v) {
 					let that = this;
 					if (k) {
-						Vue.set(v1.filter, k, v);
+						if (v=='*'){
+							Vue.delete(v1.filter, k);
+						}else{
+							Vue.set(v1.filter, k, v);
+						}
+						
 					}
 					this.zip = _.chain(this.unzip(this.r.basic)).filter(this.filter).filter(x => { return x.price > that.minPrice }).value();
 
@@ -1114,7 +1167,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 								color: lo.newCome ? "red" : "blue",
 								text: lo.beds.toString() + (lo.beds > 4 ? '+' : ''),
 								subTitle: lo.date.substring(2, 6),
-								title: "£" + lo.price.toLocaleString() + ',000'
+								title: "£" + Math.round(lo.price / 10000) + '万'
 							});
 							map.entities.push(pushpin);
 
@@ -1126,8 +1179,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 								infobox.setOptions({
 									location: args.target.getLocation(),
 									description:
-										'<div >售价£' +
-										lo.price.toLocaleString() + ',000<br>' + lo.beds + (lo.beds > 4 ? '+' : '') +
+										'<div >售价' +
+										Math.round(lo.price / 10000) + '万英镑<br>' + lo.beds + (lo.beds > 4 ? '+' : '') +
 										"卧室," + (lo.flat ? "公寓, " : "别墅, ") + (lo.freehold ? "永久产权" : "非永久产权") + "<br>更新于" +
 										lo.date.substring(0, 2) + '年' + lo.date.substring(2, 4) + "月" + lo.date.substring(4, 6) + '日' +
 										'<br><a href="?id=' +
@@ -1149,11 +1202,24 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				},
 				fetchCityBasic: async function (cityName) {
 					await this.post("http://a.greencyw.com/api", { k: "basic", city: cityName });
-					this.viewingCity=cityName;
+					this.viewingCity = cityName;
 					this.zip = this.unzip(this.r.basic);
 				},
 
-			}, created: async function () {
+			}, beforeCreate: function () {
+			},
+			beforeCreate:function(){
+				a=1;
+			},
+			created: async function () {
+				let bgPics = [
+					"http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg",
+					"http://wx2.sinaimg.cn/large/0060lm7Tly1fym6ybgpmdj318g0to7gu.jpg",
+					"http://wx3.sinaimg.cn/large/0060lm7Tly1fym778nzc9j30ws0lvwqr.jpg",
+					"http://wx1.sinaimg.cn/large/0060lm7Tly1fyok2xgz7cj319u0u07wi.jpeg",
+				]
+				this.bgPic = _.nth(bgPics, _.random(0, bgPics.length - 1));
+				//this.dowcument.getElementById('bg').setAttribute('style', "background:url('http://wx4.sinaimg.cn/large/0060lm7Tly1fy58bry93mj31a80m7wlq.jpg')  center center;min-height:80vh;  background-size: cover; ");
 				this.race();
 				let a = (new Date()).valueOf();
 				while (!this.server) { await sleep(5); }

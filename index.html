@@ -6,6 +6,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<title>英国房产大全</title>
+	<script>
+		let params = new URLSearchParams(window.location.search);
+		let redir = params.get("redir");
+		if (redir) {
+			document.cookie="qrRand="+redir.substr(0,6);
+			window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?state="+redir+"&appid=wxe88841821d99c356&redirect_uri=http%3A%2F%2Fa.greencyw.com&response_type=code&scope=snsapi_userinfo#wechat_redirect";
+		}
+	</script>
 	<link href="https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="https://cdn.staticfile.org/animate.css/3.7.0/animate.min.css" rel="stylesheet" />
 	<link rel="icon" href="https://assets.publishing.service.gov.uk/static/favicon-8d811b8c3badbc0b0e2f6e25d3660a96cc0cca7993e6f32e98785f205fc40907.ico"
@@ -64,7 +72,6 @@ border-radius:5px;
 								<a class="dropdown-item" href="#">伦敦</a>
 								<a class="dropdown-item" href="#">伯明翰</a>
 								<a class="dropdown-item" href="#">曼彻斯特</a>
-
 							</div>
 						</li>
 						<li class="nav-item dropdown active">
@@ -74,11 +81,10 @@ border-radius:5px;
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">线上会员</a>
 								<a class="dropdown-item" href="#">伦敦地产私人投资顾问</a>
-
 							</div>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link text-muted" href="#" @click="panel='about'">关于剑桥海外投资集团</a>
+							<a class="nav-link text-muted" href="#" @click="panel='about'">关于剑桥英国房地产协会</a>
 						</li>
 					</ul>
 				</div>
@@ -94,35 +100,33 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 		-->
 		<div v-if='panel=="front"' id="bg" class="d-flex flex-column justify-content-between" :style="{background : 'url(' + bgPic + ')  center center', 'min-height':'80vh',  'background-size': 'cover' }">
 
-			<div class="d-none d-md-block animated slideInDown delay-1s" style="background-color: rgba(0, 0, 0, 0.6)">
+			<div class="d-none d-md-block animated slideInDown delay-1s" style="background-color: rgba(0, 0, 0, 0.4)">
 				<p class="text-light text-center animated slideInDown delay-1s" style="font-size: 15vmin;">英国房产大全</p>
 			</div>
 			<div class="mt-auto animated slideInUp delay-1s" style="background-color: rgba(0, 0, 0, 0.6);">
 				<div class="mx-md-5 my-5 text-center">
 					<div class="row justify-content-center">
-						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInLeft delay-1s" style="background-color: rgba(255, 255, 255, 0.3);">
+						<div class="col-md-3 m-1 p-1 rounded border-light border animated slideInLeft delay-1s" style="background-color: rgba(255, 255, 255, 0.3);">
 							<a href="#about">
-								<h4 class="text-light">
+								<h4 class="text-light ">
 									伦敦置业顾问
 								</h4>
-								<p class="text-light">剑桥海外投资集团 伦敦豪宅专家</p>
-								</p>
+								<p class="text-light m-0">剑桥海外投资集团 伦敦豪宅专家	</p>
 							</a>
 						</div>
-						<div class="col-md-3 m-1 p-2 rounded border-light border" style="background-color: rgba(255, 255, 255, 0.3);">
+						<div class="col-md-3 m-1 p-1 rounded border-light border" style="background-color: rgba(255, 255, 255, 0.3);">
 							<a href="#新登场">
 								<h4 class="text-light">
 									本周新增房源
 								</h4>
-								<p v-if="r.basic" class="text-light">{{coverCities[viewingCity].cn}}:{{r.basic.length}}套 </p>
+								<p v-if="r.basic" class="text-light  m-0">{{coverCities[viewingCity].cn}}:{{r.basic.length}}套 </p>
 							</a>
 						</div>
-						<div class="col-md-3 m-1 p-2 rounded border-light border animated slideInRight delay-1s" style="background-color: rgba(255, 255, 255, 0.3);">
+						<div class="col-md-3 m-1 p-1 rounded border-light border animated slideInRight delay-1s" style="background-color: rgba(255, 255, 255, 0.3);">
 							<h4 class="text-light">
 								学区房投资
 							</h4>
-							<p class="text-light">全英国学区房资料
-							</p>
+							<p class="text-light m-0">全英国学区房资料</p>
 						</div>
 					</div>
 				</div>
@@ -145,7 +149,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 								<h3 class="card-title"><span class="borderTxt2">每分钟更新全英国房源</span></h3>
 							</div>
 							<div class="card-body text-muted  p-3">
-								<p class="card-text">运筹帷幄, 快人一步。剑桥海外投资集团联合英国房地产协会独家为您奉上英国主要城市全部在售房产信息, 滚动更新，始终与英国同步</p>
+								<p class="card-text">运筹帷幄, 快人一步。剑桥英国房地产协会独家为您奉上英国主要城市全部在售房产信息, 每分钟滚动更新，始终与英国同步</p>
 							</div>
 						</div>
 					</a>
@@ -171,7 +175,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 						<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydeu1ji82j30p00go40b.jpg"
 						 alt="Card image cap">
 						<div class="card-img-overlay p-1">
-							<h3 class="card-title"><span class="borderTxt2">精品豪宅资讯</span></h3>
+							<h3 class="card-title"><span class="borderTxt2">豪宅快讯</span></h3>
 						</div>
 						<div class="card-body text-muted p-3">
 							<p class="card-text">每日精选最新上市的精品豪宅，比来自其它国家的投资人更早获得顶级豪宅的第一手资料
@@ -185,10 +189,10 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fydefhdibvj30d607eq47.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
-								<h3 class="card-title"><span class="borderTxt2">高端学区房</span></h3>
+								<h3 class="card-title"><span class="borderTxt2">学区房</span></h3>
 							</div>
 							<div class="card-body text-muted p-3">
-								<p class="card-text">详细的学区房资料，综合分析历史成交价格 商业 交通 社区文化 租金走势。提供租金回报率和投资回报率分析预估
+								<p class="card-text">学区房投资专家 详细的学区房资料，综合分析历史成交价格 商业 交通 社区文化 租金走势。提供租金回报率和投资回报率分析预估
 								</p>
 							</div>
 						</a>
@@ -200,10 +204,10 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 							<img class="rounded card-img-top" style="width:100%; height:12rem;" src="http://wx3.sinaimg.cn/large/0060lm7Tly1fy79xuw0loj30ap06e0t9.jpg"
 							 alt="Card image cap">
 							<div class="card-img-overlay p-1">
-								<h3 class="card-title"><span class="borderTxt2">英国地产界精英团队</span></h3>
+								<h3 class="card-title"><span class="borderTxt2">剑桥英国房地产协会</span></h3>
 							</div>
 							<div class="card-body text-muted p-3">
-								<p class="card-text">英国房地产协会中国区独家合作伙伴, 精选遍布英国全境的顶级地产律师事务所共同提供专业服务(点击查看独家合作伙伴清单)
+								<p class="card-text">剑桥英国房地产协会成员为遍布英国全国排名前300名的顶级房地产事务所，为您提供最专业的本地化服务(点击查看协会成员清单)
 								</p>
 							</div>
 						</div>
@@ -275,7 +279,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 			<div class="mx-md-4 d-flex flex-wrap justify-content-center">
 				<template v-for="v in _.take(zip,gridPage)">
 					<a :href="'?id='+v.id" target="_blank">
-						<div class=" m-1 rounded d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"db/"+v.date.substring(0,6)+"/"+v.id+"/00.jpg)"}'>
+						<div class=" m-1 rounded d-flex flex-wrap align-items-end" :style='{"width":"20rem","border-width":0, "height":"12rem","background-size":"cover","background-image":"url("+server+"pic/"+v.id+"/"+v.date.substring(0,6)+"/00)"}'>
 							<p class="m-1">
 								<span class="borderTxt text">{{coverCities[viewingCity].cn}}
 									{{calcDistance(v.lat,v.lng,viewingCity)}}{{v.beds}}居
@@ -396,15 +400,17 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<table>
 					<tr>
 						<td>
-							<img v-if="server" class="img-fluid" style="zoom: .8;" :src="server+'wwwpic/icon.jpg'" />
+							<img v-if="server" class="img-fluid" style="zoom: .8;" :src="server+'static/icon.jpg'" />
 						</td>
-						<td class="text-muted pl-2 ">
-							<h5><span style="font-size: .5rem">首席投资顾问</span>&nbsp;&nbsp; {{nickname}}</h5>
+						<td class="text-muted pl-2 pt-5">
+							<h5><span>首席投资顾问</span>&nbsp;&nbsp; {{nickname}}</h5>
 							<p class="border-top">
 								剑桥海外投资基金联合创始人<br />
 								英国剑桥大学MBA<br />
 								注册会计师 注册金融分析师 经济学博士<br />
-								英国经济学人集团宏观经济研究顾问
+								英国经济学人集团宏观经济研究顾问<br />
+								曾任英国外交部亚洲经贸顾问<br />
+								前英国驻华大使Sebastian Wood特约经济顾问<br />
 							</p>
 						</td>
 					</tr>
@@ -414,12 +420,10 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 			<div id="集团介绍" class="mt-5 py-2 mx-3 text-muted ">
 				<h5>剑桥海外地产投资集团</h5>
 				<div class="media border-top">
-					<img v-if="server" style="zoom: .4;" class="img-fluid m-2" :src="server+'wwwpic/jqhw.gif'" />
+					<img v-if="server" style="zoom: .4;" class="img-fluid m-2" :src="server+'static/jqhw.gif'" />
 					<div class="media-body">
 						由剑桥大学商学院, 牛津大学商学院中国校友会及多位英国华侨联合创立.<br />
-						英国房地产协会中国唯一合作伙伴.<br />
-						与英国房产协会同步滚动更新在售项目信息<br />
-						提供视频看房，一站式购房顾问和项目托管服务
+						提供英国投资,贸易,地产,金融一站式顾问服务
 					</div>
 				</div>
 			</div>
@@ -444,7 +448,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				<span :title="server">
 					客服微信
 				</span><br>
-				<img v-if="server" class="img-fluid " style="width:8rem" :src="server+'wwwpic/qr.png'" alt="英国房产地产投资 剑桥海外投资集团 伦敦买房" />
+				<img v-if="server" class="img-fluid " style="width:8rem" :src="server+'static/qr.png'" alt="英国房产地产投资 剑桥海外投资集团 伦敦买房" />
 			</div>
 		</div>
 
@@ -566,11 +570,11 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 								</div>
 							</div>
 							<div>
-								
+
 								<select @change="setFilter('loc',filterLoc)" v-model="filterLoc" class='form-control'>
-										<option value="*">
-												全部区域
-											</option>
+									<option value="*">
+										全部区域
+									</option>
 									<template v-for="lo in _.chain(zip).countBy('loc').toPairs().orderBy(x=>{return x[1]},'desc').value()">
 										<option :value="lo[0]">
 											{{lo[0]}}({{lo[1]}}套)
@@ -614,7 +618,6 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 	<script>
 		new WOW().init();
 	</script>
-
 	<script>
 		//my credentials: 'Ag2wWcgup03GnfJSNTnI56j5HcXZOBZAh6yPely4HirtryisKd-5h-oGwybLGIu5'
 		var v1 = new Vue({
@@ -994,7 +997,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 			methods: {
 				unzip: function (arr) {
 					let that = this;
-					let res = _.chain(arr).map(x => {
+					let res = _.chain(arr).orderBy(x=>{return x.substring(0,12)},'desc').map(x => {
 						let y = _.split(x, ',');
 						return [y[0].substring(0, 12), parseInt(y[0][12]), y[0][13] == '1', y[0][14] == '1', y[0][15] == '1', y[0].substring(16, 99), y[1], y[2], parseInt(y[3]) * 1000, that.calcDistance(y[1], y[2], that.viewingCity)];
 					}
@@ -1040,8 +1043,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				},
 				race: function () {
 					let that = this;
-					fetch('http://222.242.223.77:50080/speedtest.png').then(function (data) {
-						if (that.server == '') { that.server = data.url.replace('speedtest.png', ''); }
+					fetch('http://222.242.223.77:50080/static/speedtest.png').then(function (data) {
+						if (that.server == '') { that.server = data.url.replace('static/speedtest.png', ''); }
 					}).catch(function (err) { console.log(err) });
 					/*fetch('http://210.12.56.58:33102/speedtest.png').then(function (data) {
 						if (that.server == '') { that.server = data.url.replace('speedtest.png', ''); }
@@ -1070,12 +1073,12 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 				setFilter(k, v) {
 					let that = this;
 					if (k) {
-						if (v=='*'){
+						if (v == '*') {
 							Vue.delete(v1.filter, k);
-						}else{
+						} else {
 							Vue.set(v1.filter, k, v);
 						}
-						
+
 					}
 					this.zip = _.chain(this.unzip(this.r.basic)).filter(this.filter).filter(x => { return x.price > that.minPrice }).value();
 
@@ -1186,9 +1189,7 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 										'<br><a href="?id=' +
 										lo.id +
 										'"target="_blank"><div class="d-flex" style="height:300px;width:300px;background-size:cover;background-image:url(' +
-										that.server + 'db/' + lo.date.substring(0, 6) + '/'
-										+ lo.id +
-										'/00.jpg)"><h2 class="m-auto borderTxt">请点击图片</h2></div></a>'
+										that.server + 'pic/' + lo.id +'/'+ lo.date.substring(0, 6) 	+'/00)"><h2 class="m-auto borderTxt">请点击图片</h2></div></a>'
 										+ "</div>",
 									visible: true,
 									maxHeight: 500,
@@ -1208,8 +1209,8 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 
 			}, beforeCreate: function () {
 			},
-			beforeCreate:function(){
-				a=1;
+			beforeCreate: function () {
+
 			},
 			created: async function () {
 				let bgPics = [
@@ -1235,13 +1236,13 @@ http://wx3.sinaimg.cn/large/0060lm7Tly1fydjpfzugnj30sg0iywgy.jpg
 					await this.getUserInfoAndItem();
 					if (typeof (this.r.ui) == "undefined") {
 						if (navigator.userAgent.indexOf('MicroMessenger') > 0) {//微信浏览器
-							window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?state=" + this.rand + ',' + id + "&appid=wx956c0edf4640037a&redirect_uri=http://a.greencyw.com&response_type=code&scope=snsapi_userinfo#wechat_redirect"
+							window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?state=" + this.rand + '.' + id + "&appid=wx956c0edf4640037a&redirect_uri=http://a.greencyw.com&response_type=code&scope=snsapi_userinfo#wechat_redirect"
 						} else {
 							this.panel = "login";
 							this.$nextTick(function () {
 								var qr = new QRious({
 									element: document.getElementById('qrcode'),
-									value: "http://a.greencyw.com/redir?state=" + this.rand + ',' + id//微信扫码登录（rand+propID)，好友推荐码(openid)，房屋二维码(openid+propid)
+									value: "http://a.greencyw.com/?redir=" + this.rand + '.' + id//微信扫码登录（rand+propID)，好友推荐码(openid)，房屋二维码(openid+propid)
 								});
 							});
 							setInterval(this.getUserInfoAndItem, 1000);
